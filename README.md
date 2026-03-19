@@ -1,7 +1,7 @@
 # Agents Creator Metrics
 
 ## Overview
-This project provides a robust, automated pipeline to export analytics metrics from **Google Cloud Discovery Engine** to **BigQuery**, while overcoming significant native limitations in Gemini Enterprise Analytics.
+This project provides a robust, automated pipeline to export analytics metrics from **Google Gemini Enterprise (Discovery Engine) Analytics** to **BigQuery**, while overcoming a native limitations in Gemini Enterprise Analytics while it's still in preview.
 
 ### The Problem
 Currently, the native Gemini Enterprise Analytics exports lack two critical dimensions:
@@ -142,11 +142,10 @@ Depending on your operational requirements, metrics extraction should not be pur
 This repository includes a powerful, pre-configured **Vertex AI Agent** built specifically with the Agent Development Kit (ADK) capable of chatting with this BigQuery data natively using MCP!
 
 ### The Vision: Empowering Change Management
-Imagine deploying this ADK agent to **Vertex AI Agent Engine** and sharing its natural-language conversational interface directly with your Change Management, Platform Adoption, or Executive teams. Instead of manually writing SQL queries or building complex Looker dashboards, non-technical stakeholders can simply ask the agent about specific data insights.
+Imagine deploying this ADK agent to **Vertex AI Agent Engine** and sharing its natural-language conversational interface directly with your Change Management, Platform Adoption, or Executive teams. Instead of manually writing SQL queries or building complex dashboards, non-technical stakeholders can simply ask the agent about specific data insights.
 
 ![ADK Agent Demo](./images/adk_agent_demo.png)
 
-By putting native data conversation natively in the hands of the business, you dramatically accelerate observability, governance, and platform ROI.
 
 ### Running the Agent
-For detailed instructions on configuring the environment, installing dependencies, and testing this ADK agent locally, please refer to the dedicated [ADK Agent Documentation](./adk_agent/README.md).
+For detailed instructions on configuring the environment, installing dependencies, and testing this ADK agent locally, refer to the [documentation](./adk_agent/README.md).

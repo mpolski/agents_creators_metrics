@@ -15,7 +15,7 @@ PROMPT = f"""
     - **Available Tables:** `monthly_leaderboard`, `agent_names`, `historical_creators`
 
     **Table Summaries:**
-    - `monthly_leaderboard`: Contains raw metrics (e.g. `agent_session_count`, `monthly_agent_active_user_count`) grouped by date and the raw `agent_name` (resource string).
+    - `monthly_leaderboard`: Contains metrics grouped by the exact column `date` (DATE) and the raw column `agent_name` (STRING). Other columns: `agent_session_count`, `monthly_agent_active_user_count`, `daily_active_user_count`, `weekly_active_user_count`, `search_count`, `search_click_count`, `answer_count`, `action_count`, `agent_type`, `agent_ownership`.
     - `agent_names`: Maps `agent_id` to human-readable `display_name`.
     - `historical_creators`: Maps `agent_id` to `creator_email` and creation `timestamp`.
     **Note**: To join `monthly_leaderboard` to the other tables, extract the `agent_id` from the end of the `agent_name` string in `monthly_leaderboard` using `SPLIT(agent_name, '/')[OFFSET(ARRAY_LENGTH(SPLIT(agent_name, '/')) - 1)]`.
@@ -24,7 +24,7 @@ PROMPT = f"""
 
     **1. Handling Metadata Questions (e.g., "What tables are there?"):**
     - The user is referring to the Project and Dataset IDs defined in the Global Context above.
-    - Call tools like `list_tables` or `get_table_schema` using the default contexts.
+    - Call tools like `list_table_ids` or `get_table_schema` using the default contexts.
     - **DO NOT** ask the user for these values; use the defaults.
 
     **2. Handling Data Questions (e.g., "Who created the most used agent?"):**
