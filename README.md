@@ -68,14 +68,15 @@ The `adk_agent` uses rigorous Service Account Impersonation to securely route to
 - **BigQuery Metadata Viewer** (`roles/bigquery.metadataViewer`): Safely provides explicit clearance to iterate and inspect dataset structures directly without hitting access blocks.
 
 **Quick SA Setup:**
-If you have just created a new Service Account (`TARGET_SA_EMAIL`) for the ADK agent, run these exact commands from your terminal to attach the required permissions:
+If you have just created a new Service Account (`TARGET_SA_EMAIL`) for the ADK agent, run these exact commands from your terminal to attach the required backend permissions, as well as the explicit **Token Creator** permission for yourself to impersonate it:
 
 ```bash
 # Set your variables
 export PROJECT_ID="your-gcp-project-id"
 export ADK_SA="your-sa-name@$PROJECT_ID.iam.gserviceaccount.com"
+export USER_EMAIL="your-google-email@domain.com"
 
-# Grant the roles
+# 1. Grant the agent access to Google Cloud
 gcloud projects add-iam-policy-binding $PROJECT_ID \
   --member="serviceAccount:$ADK_SA" \
   --role="roles/aiplatform.user"
@@ -99,6 +100,11 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
 gcloud projects add-iam-policy-binding $PROJECT_ID \
   --member="serviceAccount:$ADK_SA" \
   --role="roles/serviceusage.serviceUsageConsumer"
+
+# 2. Grant YOUR personal identity permission to impersonate the agent natively
+gcloud iam service-accounts add-iam-policy-binding $ADK_SA \
+  --member="user:$USER_EMAIL" \
+  --role="roles/iam.serviceAccountTokenCreator"
 ```
 
 ---
