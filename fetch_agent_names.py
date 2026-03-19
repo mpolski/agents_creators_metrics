@@ -37,18 +37,43 @@ if not engines:
     print("⚠️ No agents found in this project/location.")
     exit(0)
 
-# 4. Format the data for BigQuery
+# 4. Fetch Assistants and Agents for each Engine
 records = []
 for engine in engines:
-    # Extract just the raw ID from the end of the resource name string
-    raw_name = engine.get("name", "")
-    engine_id = raw_name.split("/")[-1]
-    display_name = engine.get("displayName", "Unknown")
-    
-    records.append({
-        "agent_id": engine_id,
-        "display_name": display_name
-    })
+    engine_name = engine.get("name")
+    if not engine_name:
+        continue
+        
+    # Fetch Assistants
+    assistants_url = f"https://discoveryengine.googleapis.com/v1alpha/{engine_name}/assistants"
+    ast_res = requests.get(assistants_url, headers=headers)
+    if ast_res.status_code != 200:
+        continue
+        
+    assistants = ast_res.json().get("assistants", [])
+    for ast in assistants:
+        ast_name = ast.get("name")
+        if not ast_name:
+            continue
+            
+        # Fetch Agents
+        agents_url = f"https://discoveryengine.googleapis.com/v1alpha/{ast_name}/agents"
+        agt_res = requests.get(agents_url, headers=headers)
+        if agt_res.status_code != 200:
+            continue
+            
+        agents = agt_res.json().get("agents", [])
+        for agt in agents:
+            raw_agt_name = agt.get("name", "")
+            if not raw_agt_name:
+                continue
+            agent_id = raw_agt_name.split("/")[-1]
+            display_name = agt.get("displayName", "Unknown")
+            
+            records.append({
+                "agent_id": agent_id,
+                "display_name": display_name
+            })
 
 print(f"✅ Found {len(records)} agents. Pushing to BigQuery...")
 
