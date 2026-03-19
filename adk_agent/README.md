@@ -2,6 +2,14 @@
 
 This directory contains a pre-configured **Vertex AI Agent** built specifically with the Agent Development Kit (ADK) to chat naturally with your enriched BigQuery metrics using the native BigQuery MCP server.
 
+## ADK Prerequisites
+Before running this agent, you must have the **Agent Development Kit (ADK)** installed. 
+While this project's `requirements.txt` installs it automatically into your environment, you can also install the ADK globally via:
+```bash
+pip install google-adk
+```
+For more detailed installation instructions, configuration management, and deployment guides, please refer to the [official ADK GitHub page](https://github.com/google/google-adk-python).
+
 ## Testing the Agent Locally
 
 1. **Navigate to the parent directory:**
