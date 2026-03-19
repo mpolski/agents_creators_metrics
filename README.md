@@ -139,16 +139,14 @@ Depending on your operational requirements, metrics extraction should not be pur
 
 ## Local Analytics Agent (ADK)
 
-This repository also contains a powerful, pre-configured **Vertex AI Agent** built specifically with the Agent Development Kit (ADK) to chat naturally with your enriched BigQuery metrics!
+This repository includes a powerful, pre-configured **Vertex AI Agent** built specifically with the Agent Development Kit (ADK) capable of chatting with this BigQuery data natively using MCP!
 
-Navigating into the `adk_agent` directory opens an agent capable of leveraging the native **BigQuery MCP** service. 
-By supplying the explicit project IDs and configuring Service Account impersonation natively within the code, you can use the ADK CLI to ask advanced analytical questions:
+### The Vision: Empowering Change Management
+Imagine deploying this ADK agent to **Vertex AI Agent Engine** and sharing its natural-language conversational interface directly with your Change Management, Platform Adoption, or Executive teams. Instead of manually writing SQL queries or building complex Looker dashboards, non-technical stakeholders can simply ask the agent about specific data insights.
 
-```text
-"Who created the Gemini Companion agent, and how many active users did it have this week?"
-```
+![ADK Agent Demo](./images/adk_agent_demo.png)
 
-### Testing the Agent Locally
-1. Navigate into the sub-directory: `cd adk_agent`
-2. Install the adk dependencies: `pip install -r requirements.txt` (or via `uv`)
-3. Spin up the web client: `adk run` (or test natively via `python run_local_test.py`)
+By putting native data conversation natively in the hands of the business, you dramatically accelerate observability, governance, and platform ROI.
+
+### Running the Agent
+For detailed instructions on configuring the environment, installing dependencies, and testing this ADK agent locally, please refer to the dedicated [ADK Agent Documentation](./adk_agent/README.md).
