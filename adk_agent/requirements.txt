@@ -1,0 +1,14 @@
+google-adk==1.21.0
+google-auth==2.45.0
+google-auth-httplib2==0.2.0
+google-auth-oauthlib==1.2.2
+google-cloud-aiplatform[adk,agent_engines]==1.132.0
+google-cloud-apihub==0.5.0
+
+python-dotenv==1.0.1
+opentelemetry-instrumentation-google-genai>=0.4b0
+opentelemetry-instrumentation-sqlite3
+opentelemetry-exporter-gcp-logging
+opentelemetry-exporter-gcp-monitoring
+opentelemetry-exporter-otlp-proto-grpc
+opentelemetry-instrumentation-vertexai>=2.0b0
