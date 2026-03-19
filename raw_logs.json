@@ -1,0 +1,2024 @@
+[
+  {
+    "insertId": "1fc94d7d2g29",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2026-03-10T11:56:24.870330425Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "global"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.Agent",
+        "name": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant/agents/8288862940398010117"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2026-03-10T11:56:26.754679635Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-03-10T11:56:24.852991022Z"
+  },
+  {
+    "insertId": "nlmzype154q3",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2026-03-10T11:56:22.405912633Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "global"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.Agent",
+        "name": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant/agents/5062630974601096997"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2026-03-10T11:56:24.312841207Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-03-10T11:56:22.386352406Z"
+  },
+  {
+    "insertId": "uko0k0dcpde",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2026-03-10T11:55:27.914874421Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "global"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.Agent",
+        "name": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant/agents/6228717200287883137"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2026-03-10T11:55:30.458565631Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-03-10T11:55:27.900144770Z"
+  },
+  {
+    "insertId": "qew8xtd1vm0",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1alpha.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1alpha.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2026-03-08T22:26:53.488963366Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "global"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1alpha.Agent",
+        "name": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant/agents/11132692387835474127"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2026-03-08T22:26:54.780564259Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1alpha.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-03-08T22:26:53.461947466Z"
+  },
+  {
+    "insertId": "15x88ind4e05",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1alpha.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1alpha.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2026-03-02T23:45:27.422193542Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "global"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1alpha.Agent",
+        "name": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant/agents/9264527389822375440"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2026-03-02T23:45:30.107709130Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1alpha.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-03-02T23:45:27.406968474Z"
+  },
+  {
+    "insertId": "969ujdd7l9r",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1alpha.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1alpha.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2026-03-02T23:19:29.506166017Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "global"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1alpha.Agent",
+        "name": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant/agents/8312872028016269139"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2026-03-02T23:19:32.003087443Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1alpha.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-03-02T23:19:29.489118037Z"
+  },
+  {
+    "insertId": "kasn30dc1py",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "user1@mpolski.altostrat.com",
+        "principalSubject": "user:user1@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2026-02-19T12:24:12.859294403Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "global"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.Agent",
+        "name": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant/agents/3607399927956798486"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2026-02-19T12:24:15.324223521Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-02-19T12:24:12.849063523Z"
+  },
+  {
+    "insertId": "e7jb7jdnuh2",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "user2@mpolski.altostrat.com",
+        "principalSubject": "user:user2@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2026-02-17T08:45:55.715963474Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "global"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.Agent",
+        "name": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant/agents/10623516443253060038"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2026-02-17T08:45:57.656546575Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-02-17T08:45:55.700589837Z"
+  },
+  {
+    "insertId": "e5xntrdxr8p",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "user1@mpolski.altostrat.com",
+        "principalSubject": "user:user1@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agentIamProposals.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant/agents/5771144592700025618",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1main.AgentIamProposalService.BatchCreateAgentIamProposals",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.BatchCreateAgentIamProposalsRequest",
+        "parent": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant/agents/5771144592700025618"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2026-02-16T16:15:44.916125422Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "global"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant/agents/5771144592700025618",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.BatchCreateAgentIamProposalsResponse"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2026-02-16T16:15:46.211564987Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1main.AgentIamProposalService.BatchCreateAgentIamProposals",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-02-16T16:15:44.903968083Z"
+  },
+  {
+    "insertId": "1ky36dte156ya",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "user1@mpolski.altostrat.com",
+        "principalSubject": "user:user1@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2026-02-16T16:05:21.191858187Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "global"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.Agent",
+        "name": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant/agents/5771144592700025618"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2026-02-16T16:05:22.752885620Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-02-16T16:05:21.181149175Z"
+  },
+  {
+    "insertId": "e5xntrdxmzy",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "user1@mpolski.altostrat.com",
+        "principalSubject": "user:user1@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": false,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2026-02-16T15:55:36.915240575Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "global"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+      "serviceName": "discoveryengine.googleapis.com",
+      "status": {
+        "code": 7,
+        "details": [
+          {
+            "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+            "domain": "discoveryengine.googleapis.com",
+            "reason": "IAM_PERMISSION_DENIED"
+          }
+        ],
+        "message": "Permission 'discoveryengine.agents.create' denied on resource '//discoveryengine.googleapis.com/projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant' (or it may not exist)."
+      }
+    },
+    "receiveTimestamp": "2026-02-16T15:55:36.977363403Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "ERROR",
+    "timestamp": "2026-02-16T15:55:36.707797572Z"
+  },
+  {
+    "insertId": "1d4fieod9s89",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1alpha.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1alpha.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2026-02-16T11:53:04.335056976Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "global"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1alpha.Agent",
+        "name": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant/agents/11188984935471367864"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2026-02-16T11:53:05.604277396Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1alpha.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-02-16T11:53:04.305752813Z"
+  },
+  {
+    "insertId": "gfewmud4mup",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2026-02-05T15:39:33.490315578Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "global"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.Agent",
+        "name": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant/agents/11254311224298784674"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2026-02-05T15:39:35.363730222Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-02-05T15:39:33.471528361Z"
+  },
+  {
+    "insertId": "1os85qrd2qa1",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1alpha.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1alpha.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2026-02-04T18:42:21.841523544Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "global"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1alpha.Agent",
+        "name": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant/agents/6955693657827785192"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2026-02-04T18:42:23.626116976Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1alpha.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-02-04T18:42:21.822213106Z"
+  },
+  {
+    "insertId": "1os85qrd26ss",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1alpha.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1alpha.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2026-02-04T15:15:09.210828643Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "global"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1alpha.Agent",
+        "name": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant/agents/14515066138126738281"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2026-02-04T15:15:10.533734249Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1alpha.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-02-04T15:15:09.201269684Z"
+  },
+  {
+    "insertId": "2j2byccut2",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1alpha.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1alpha.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2026-02-03T13:54:58.399151263Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "global"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1alpha.Agent",
+        "name": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant/agents/14005834016266122564"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2026-02-03T13:54:59.715516700Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1alpha.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-02-03T13:54:58.384705544Z"
+  },
+  {
+    "insertId": "ln8qzycqvx",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1alpha.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1alpha.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2026-02-03T13:13:19.162970265Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "global"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1alpha.Agent",
+        "name": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant/agents/8019543357805068666"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2026-02-03T13:13:20.351820091Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1alpha.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-02-03T13:13:19.145486200Z"
+  },
+  {
+    "insertId": "1rjjttcchmv",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1alpha.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1alpha.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2026-02-03T11:07:39.248003299Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "global"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1alpha.Agent",
+        "name": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant/agents/6458713453589281553"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2026-02-03T11:07:41.241825631Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1alpha.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-02-03T11:07:39.221197588Z"
+  },
+  {
+    "insertId": "1ekayg3d3xkq",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1alpha.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1alpha.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2026-02-02T21:49:34.503654709Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "global"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1alpha.Agent",
+        "name": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant/agents/17635059292834576577"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2026-02-02T21:49:35.942452639Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1alpha.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-02-02T21:49:34.491997893Z"
+  },
+  {
+    "insertId": "1yn58d4l53",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1alpha.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1alpha.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2026-02-02T21:36:43.406778336Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "global"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1alpha.Agent",
+        "name": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant/agents/10336518463923945922"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2026-02-02T21:36:44.661086071Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1alpha.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-02-02T21:36:43.390999382Z"
+  },
+  {
+    "insertId": "1ekayg3d3x10",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1alpha.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1alpha.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2026-02-02T21:32:59.810648044Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "global"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1alpha.Agent",
+        "name": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant/agents/5950618222599299986"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2026-02-02T21:33:01.839657034Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1alpha.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-02-02T21:32:59.798773252Z"
+  },
+  {
+    "insertId": "1mug4sod496p",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1alpha.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1alpha.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2026-02-02T21:03:08.801353545Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "global"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1alpha.Agent",
+        "name": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant/agents/9433746609579003180"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2026-02-02T21:03:10.396562713Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1alpha.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-02-02T21:03:08.776857188Z"
+  },
+  {
+    "insertId": "ul38psd48a4",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1alpha.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1alpha.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2026-02-02T20:47:31.207442282Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "global"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1alpha.Agent",
+        "name": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant/agents/3528564945257558393"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2026-02-02T20:47:32.734637132Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1alpha.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-02-02T20:47:31.186701884Z"
+  },
+  {
+    "insertId": "1ux8jifd33gs",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/eu/collections/default_collection/engines/my-agentspace-app_1741770897213/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/eu/collections/default_collection/engines/my-agentspace-app_1741770897213/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2025-12-11T01:39:00.872855108Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "eu"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/eu/collections/default_collection/engines/my-agentspace-app_1741770897213/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.Agent",
+        "name": "projects/856463597418/locations/eu/collections/default_collection/engines/my-agentspace-app_1741770897213/assistants/default_assistant/agents/249911278046234441"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2025-12-11T01:39:02.410681224Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2025-12-11T01:39:00.858091727Z"
+  },
+  {
+    "insertId": "63wqeseeh80y",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/us/collections/default_collection/engines/us-app_1763976439073/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/us/collections/default_collection/engines/us-app_1763976439073/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2025-12-10T22:58:36.326741653Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "us"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/us/collections/default_collection/engines/us-app_1763976439073/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.Agent",
+        "name": "projects/856463597418/locations/us/collections/default_collection/engines/us-app_1763976439073/assistants/default_assistant/agents/11731237606264196895"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2025-12-10T22:58:37.812271085Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2025-12-10T22:58:36.309454566Z"
+  },
+  {
+    "insertId": "63wqeseegf0c",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/us/collections/default_collection/engines/us-app_1763976439073/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/us/collections/default_collection/engines/us-app_1763976439073/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2025-12-10T22:55:57.933106359Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "us"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/us/collections/default_collection/engines/us-app_1763976439073/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.Agent",
+        "name": "projects/856463597418/locations/us/collections/default_collection/engines/us-app_1763976439073/assistants/default_assistant/agents/4893330800514315022"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2025-12-10T22:55:58.642572433Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2025-12-10T22:55:57.923928610Z"
+  },
+  {
+    "insertId": "rrxyvwd2yx3",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/eu/collections/default_collection/engines/my-agentspace-app_1741770897213/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/eu/collections/default_collection/engines/my-agentspace-app_1741770897213/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2025-12-10T22:54:33.068619659Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "eu"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/eu/collections/default_collection/engines/my-agentspace-app_1741770897213/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.Agent",
+        "name": "projects/856463597418/locations/eu/collections/default_collection/engines/my-agentspace-app_1741770897213/assistants/default_assistant/agents/10355814718187448761"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2025-12-10T22:54:34.068171603Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2025-12-10T22:54:33.052470371Z"
+  },
+  {
+    "insertId": "rrxyvwd2yve",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/eu/collections/default_collection/engines/my-agentspace-app_1741770897213/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/eu/collections/default_collection/engines/my-agentspace-app_1741770897213/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2025-12-10T22:49:04.666716045Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "eu"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/eu/collections/default_collection/engines/my-agentspace-app_1741770897213/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.Agent",
+        "name": "projects/856463597418/locations/eu/collections/default_collection/engines/my-agentspace-app_1741770897213/assistants/default_assistant/agents/7278413444824751011"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2025-12-10T22:49:05.699703438Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2025-12-10T22:49:04.648412175Z"
+  },
+  {
+    "insertId": "fvjt1gd2w82",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/eu/collections/default_collection/engines/my-agentspace-app_1741770897213/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/eu/collections/default_collection/engines/my-agentspace-app_1741770897213/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2025-12-10T22:44:58.082400370Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "eu"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/eu/collections/default_collection/engines/my-agentspace-app_1741770897213/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.Agent",
+        "name": "projects/856463597418/locations/eu/collections/default_collection/engines/my-agentspace-app_1741770897213/assistants/default_assistant/agents/4628222651663600707"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2025-12-10T22:44:59.303779488Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2025-12-10T22:44:58.062029211Z"
+  },
+  {
+    "insertId": "6g2c2dd57e4",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2025-12-10T22:38:50.701477Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "global"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.Agent",
+        "name": "projects/856463597418/locations/global/collections/default_collection/engines/agentspace-global_1757554730161/assistants/default_assistant/agents/8973513532096587832"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2025-12-10T22:38:53.067097374Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2025-12-10T22:38:50.685713220Z"
+  },
+  {
+    "insertId": "wgq14de6iwkb",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/us/collections/default_collection/engines/us-app_1763976439073/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/us/collections/default_collection/engines/us-app_1763976439073/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2025-12-07T22:36:52.206368135Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "us"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/us/collections/default_collection/engines/us-app_1763976439073/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.Agent",
+        "name": "projects/856463597418/locations/us/collections/default_collection/engines/us-app_1763976439073/assistants/default_assistant/agents/14328505511441597248"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2025-12-07T22:36:53.831094518Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2025-12-07T22:36:52.199501893Z"
+  },
+  {
+    "insertId": "g3y7c6ej44s5",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/us/collections/default_collection/engines/us-app_1763976439073/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/us/collections/default_collection/engines/us-app_1763976439073/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2025-12-01T10:17:50.579282866Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "us"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/us/collections/default_collection/engines/us-app_1763976439073/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.Agent",
+        "name": "projects/856463597418/locations/us/collections/default_collection/engines/us-app_1763976439073/assistants/default_assistant/agents/4793059723367465721"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2025-12-01T10:17:51.274314938Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2025-12-01T10:17:50.561737086Z"
+  },
+  {
+    "insertId": "g3y7c6e9hvih",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/us/collections/default_collection/engines/us-app_1763976439073/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/us/collections/default_collection/engines/us-app_1763976439073/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2025-11-24T09:31:27.017252762Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "us"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/us/collections/default_collection/engines/us-app_1763976439073/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.Agent",
+        "name": "projects/856463597418/locations/us/collections/default_collection/engines/us-app_1763976439073/assistants/default_assistant/agents/17987860763745285054"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2025-11-24T09:31:27.719530417Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2025-11-24T09:31:27.001785946Z"
+  },
+  {
+    "insertId": "mjg1bbd8tw8",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/eu/collections/default_collection/engines/my-agentspace-app_1741770897213/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/eu/collections/default_collection/engines/my-agentspace-app_1741770897213/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2025-11-24T09:26:24.004682917Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "eu"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/eu/collections/default_collection/engines/my-agentspace-app_1741770897213/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.Agent",
+        "name": "projects/856463597418/locations/eu/collections/default_collection/engines/my-agentspace-app_1741770897213/assistants/default_assistant/agents/10290793176952087765"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2025-11-24T09:26:24.582045285Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2025-11-24T09:26:23.987511538Z"
+  },
+  {
+    "insertId": "s1jljvch9p",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/eu/collections/default_collection/engines/my-agentspace-app_1741770897213/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/eu/collections/default_collection/engines/my-agentspace-app_1741770897213/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2025-10-09T09:19:05.210416840Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "eu"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/eu/collections/default_collection/engines/my-agentspace-app_1741770897213/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.Agent",
+        "name": "projects/856463597418/locations/eu/collections/default_collection/engines/my-agentspace-app_1741770897213/assistants/default_assistant/agents/6672397715306869122"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2025-10-09T09:19:05.944989295Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2025-10-09T09:19:05.192084623Z"
+  },
+  {
+    "insertId": "yemr4zd2jy2",
+    "logName": "projects/genai-whitlstd-rcf/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "bruce@mpolski.altostrat.com",
+        "principalSubject": "user:bruce@mpolski.altostrat.com"
+      },
+      "authorizationInfo": [
+        {
+          "granted": true,
+          "permission": "discoveryengine.agents.create",
+          "permissionType": "ADMIN_WRITE",
+          "resource": "projects/856463597418/locations/eu/collections/default_collection/engines/my-agentspace-app_1741770897213/assistants/default_assistant",
+          "resourceAttributes": {}
+        }
+      ],
+      "methodName": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.CreateAgentRequest",
+        "parent": "projects/856463597418/locations/eu/collections/default_collection/engines/my-agentspace-app_1741770897213/assistants/default_assistant"
+      },
+      "requestMetadata": {
+        "callerIp": "gce-internal-ip",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36,gzip(gfe)",
+        "destinationAttributes": {},
+        "requestAttributes": {
+          "auth": {},
+          "time": "2025-08-21T14:33:28.168745132Z"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "eu"
+        ]
+      },
+      "resourceName": "projects/856463597418/locations/eu/collections/default_collection/engines/my-agentspace-app_1741770897213/assistants/default_assistant",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.discoveryengine.v1main.Agent",
+        "name": "projects/856463597418/locations/eu/collections/default_collection/engines/my-agentspace-app_1741770897213/assistants/default_assistant/agents/10005434228224246829"
+      },
+      "serviceName": "discoveryengine.googleapis.com"
+    },
+    "receiveTimestamp": "2025-08-21T14:33:29.042594107Z",
+    "resource": {
+      "labels": {
+        "method": "google.cloud.discoveryengine.v1main.AgentService.CreateAgent",
+        "project_id": "genai-whitlstd-rcf",
+        "service": "discoveryengine.googleapis.com"
+      },
+      "type": "audited_resource"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2025-08-21T14:33:28.145028735Z"
+  }
+]

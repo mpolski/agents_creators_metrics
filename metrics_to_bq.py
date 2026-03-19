@@ -1,0 +1,67 @@
+import os
+import sys
+import json
+import requests
+import google.auth
+import google.auth.transport.requests
+from dotenv import load_dotenv
+
+def export_metrics():
+    # 1. Load the variables from the .env file
+    load_dotenv()
+    
+    project_id = os.getenv("PROJECT_ID")
+    location = os.getenv("LOCATION", "global")
+    engine_id = os.getenv("ENGINE_ID")
+    dataset_id = os.getenv("DATASET_ID")
+    table_id = os.getenv("TABLE_ID")
+    
+    # Safety check
+    if not all([project_id, engine_id, dataset_id, table_id]):
+        print("❌ Error: Missing variables in .env file.")
+        sys.exit(1)
+        
+    print(f"🚀 Triggering export for Engine: {engine_id}")
+    print(f"📁 Destination: {project_id}.{dataset_id}.{table_id}")
+
+    # 2. Authenticate using your active gcloud session
+    try:
+        credentials, _ = google.auth.default(
+            scopes=['https://www.googleapis.com/auth/cloud-platform']
+        )
+        auth_req = google.auth.transport.requests.Request()
+        credentials.refresh(auth_req)
+    except Exception as e:
+        print(f"❌ Auth failed. Run 'gcloud auth application-default login' first.\nError: {e}")
+        sys.exit(1)
+
+    # 3. Build the API Request
+    url = f"https://discoveryengine.googleapis.com/v1alpha/projects/{project_id}/locations/{location}/collections/default_collection/engines/{engine_id}/analytics:exportMetrics"
+    
+    headers = {
+        'Authorization': f'Bearer {credentials.token}',
+        'Content-Type': 'application/json',
+        'x-goog-user-project': project_id
+    }
+    
+    payload = {
+        "outputConfig": {
+            "bigqueryDestination": {
+                "datasetId": dataset_id,
+                "tableId": table_id
+            }
+        }
+    }
+
+    # 4. Fire the Request
+    response = requests.post(url, headers=headers, data=json.dumps(payload))
+    
+    if response.status_code == 200:
+        operation_name = response.json().get('name')
+        print(f"✅ Success! Google is processing the export.")
+        print(f"🔍 Operation ID: {operation_name}")
+    else:
+        print(f"❌ Error {response.status_code}: {response.text}")
+
+if __name__ == "__main__":
+    export_metrics()
