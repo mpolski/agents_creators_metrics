@@ -18,9 +18,15 @@ We solve this by actively combining data from the **Discovery Engine API** and G
 ### Data Architecture
 The data pipeline exports, enriches, and merges disparate data streams into three distinct tables stored within a single BigQuery dataset (default: `gemini_analytics`):
 
-1. **`monthly_leaderboard`** (Source: Discovery Engine API exportMetrics)
-2. **`agent_names`** (Source: Discovery Engine API enumeration)
-3. **`historical_creators`** (Source: Google Cloud Audit Logs)
+1. **`monthly_leaderboard`**
+   - **Source:** Discovery Engine API (`exportMetrics`)
+   - **Purpose:** Stores raw session and usage metrics (e.g., `agent_session_count`, `search_click_count`) grouped by `date` for activity reporting.
+2. **`agent_names`**
+   - **Source:** Discovery Engine API (Assistants/Agents enumeration)
+   - **Purpose:** Maps opaque backend node IDs to human-readable agent `display_name`s.
+3. **`historical_creators`**
+   - **Source:** Google Cloud Audit Logs
+   - **Purpose:** Maps agent IDs to their explicit creator email (`creator_email`) and creation `timestamp`.
 
 *Note: We seamlessly join these tables in BigQuery by extracting the `agent_id` substring from the end of the `agent_name` column in the `monthly_leaderboard` table.*
 
@@ -77,53 +83,5 @@ Imagine deploying this ADK agent to **Vertex AI Agent Engine** and sharing its n
 
 ![ADK Agent Demo](./images/adk_agent_demo.png)
 
-### 1. Enable BigQuery MCP
-You must explicitly enable the native BigQuery MCP service on your project infrastructure so the agent can discover BigQuery tools:
-```bash
-gcloud beta services mcp enable bigquery.googleapis.com --project="your-gcp-project-id"
-```
-
-### 2. ADK Agent Service Account & IAM
-The `adk_agent` uses rigorous Service Account Impersonation to securely route to the managed BigQuery MCP and Vertex AI models. The Service Account defined in your `adk_agent/.env` as `TARGET_SA_EMAIL` must be explicitly granted the following roles.
-
-**Quick SA Setup:**
-Run these exact commands from your terminal to attach the required backend permissions to your Agent SA, as well as the explicit **Token Creator** permission for yourself to impersonate it:
-
-```bash
-export PROJECT_ID="your-gcp-project-id"
-export ADK_SA="your-sa-name@$PROJECT_ID.iam.gserviceaccount.com"
-export USER_EMAIL="your-google-email@domain.com"
-
-# 1. Grant the agent access to Google Cloud
-gcloud projects add-iam-policy-binding $PROJECT_ID \
-  --member="serviceAccount:$ADK_SA" \
-  --role="roles/aiplatform.user"
-
-gcloud projects add-iam-policy-binding $PROJECT_ID \
-  --member="serviceAccount:$ADK_SA" \
-  --role="roles/bigquery.dataViewer"
-
-gcloud projects add-iam-policy-binding $PROJECT_ID \
-  --member="serviceAccount:$ADK_SA" \
-  --role="roles/bigquery.jobUser"
-
-gcloud projects add-iam-policy-binding $PROJECT_ID \
-  --member="serviceAccount:$ADK_SA" \
-  --role="roles/bigquery.metadataViewer"
-  
-gcloud projects add-iam-policy-binding $PROJECT_ID \
-  --member="serviceAccount:$ADK_SA" \
-  --role="roles/mcp.toolUser"
-
-gcloud projects add-iam-policy-binding $PROJECT_ID \
-  --member="serviceAccount:$ADK_SA" \
-  --role="roles/serviceusage.serviceUsageConsumer"
-
-# 2. Grant YOUR personal identity permission to impersonate the agent natively
-gcloud iam service-accounts add-iam-policy-binding $ADK_SA \
-  --member="user:$USER_EMAIL" \
-  --role="roles/iam.serviceAccountTokenCreator"
-```
-
-### 3. Running the Agent
-For detailed instructions on configuring the local environment, installing ADK dependencies, and testing this ADK agent locally, refer to the [ADK Agent documentation](./adk_agent/README.md).
+### Running the Agent
+For detailed instructions on configuring the local environment, provisioning the ADK service account, and testing this ADK agent locally, refer to the [ADK Agent documentation](./adk_agent/README.md).

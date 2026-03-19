@@ -10,7 +10,55 @@ pip install google-adk
 ```
 For more detailed installation instructions, configuration management, and deployment guides, please refer to the [official ADK GitHub page](https://github.com/google/google-adk-python).
 
-## Testing the Agent Locally
+## 1. Enable BigQuery MCP
+You must explicitly enable the native BigQuery MCP service on your project infrastructure so the agent can discover BigQuery tools:
+```bash
+gcloud beta services mcp enable bigquery.googleapis.com --project="your-gcp-project-id"
+```
+
+## 2. ADK Agent Service Account & IAM
+The `adk_agent` uses rigorous Service Account Impersonation to securely route to the managed BigQuery MCP and Vertex AI models. The Service Account defined in your `adk_agent/.env` as `TARGET_SA_EMAIL` must be explicitly granted the following roles.
+
+**Quick SA Setup:**
+Run these exact commands from your terminal to attach the required backend permissions to your Agent SA, as well as the explicit **Token Creator** permission for yourself to impersonate it:
+
+```bash
+export PROJECT_ID="your-gcp-project-id"
+export ADK_SA="your-sa-name@$PROJECT_ID.iam.gserviceaccount.com"
+export USER_EMAIL="your-google-email@domain.com"
+
+# 1. Grant the agent access to Google Cloud
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+  --member="serviceAccount:$ADK_SA" \
+  --role="roles/aiplatform.user"
+
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+  --member="serviceAccount:$ADK_SA" \
+  --role="roles/bigquery.dataViewer"
+
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+  --member="serviceAccount:$ADK_SA" \
+  --role="roles/bigquery.jobUser"
+
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+  --member="serviceAccount:$ADK_SA" \
+  --role="roles/bigquery.metadataViewer"
+  
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+  --member="serviceAccount:$ADK_SA" \
+  --role="roles/mcp.toolUser"
+
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+  --member="serviceAccount:$ADK_SA" \
+  --role="roles/serviceusage.serviceUsageConsumer"
+
+# 2. Grant YOUR personal identity permission to impersonate the agent natively
+gcloud iam service-accounts add-iam-policy-binding $ADK_SA \
+  --member="user:$USER_EMAIL" \
+  --role="roles/iam.serviceAccountTokenCreator"
+```
+
+## 3. Testing the Agent Locally
 
 1. **Navigate to the parent directory:**
    ```bash
