@@ -61,6 +61,8 @@ When you run `./setup_sink.sh`, Google Cloud automatically provisions a unique W
 ### 3. The Local ADK Agent Service Account
 The `adk_agent` uses rigorous Service Account Impersonation to securely route to the managed BigQuery MCP and Vertex AI LLMs. The Service Account defined in your `.env`'s `TARGET_SA_EMAIL` variable must be explicitly granted:
 - **Vertex AI User** (`roles/aiplatform.user`): To natively query the Gemini models formatting your chat.
+- **MCP Tool User** (`roles/mcp.toolUser`): Natively required by Google Cloud to invoke tools hosted on the BigQuery MCP server.
+- **Service Usage Consumer** (`roles/serviceusage.serviceUsageConsumer`): Required to authenticate and route requests through the managed MCP endpoint.
 - **BigQuery Data Viewer** (`roles/bigquery.dataViewer`): Permits reading dataset tables and querying the analytical metrics. *(Note: Data Viewer inherently includes the `bigquery.tables.list` scope required by the MCP `list_table_ids` tool).*
 - **BigQuery Job User** (`roles/bigquery.jobUser`): Grants the agent the fundamental execution authority to compute SQL queries against your billing project footprint.
 - **BigQuery Metadata Viewer** (`roles/bigquery.metadataViewer`): Safely provides explicit clearance to iterate and inspect dataset structures directly without hitting access blocks.
@@ -89,6 +91,14 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
 gcloud projects add-iam-policy-binding $PROJECT_ID \
   --member="serviceAccount:$ADK_SA" \
   --role="roles/bigquery.metadataViewer"
+  
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+  --member="serviceAccount:$ADK_SA" \
+  --role="roles/mcp.toolUser"
+
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+  --member="serviceAccount:$ADK_SA" \
+  --role="roles/serviceusage.serviceUsageConsumer"
 ```
 
 ---
@@ -110,10 +120,15 @@ pip install -r requirements.txt
 ```
 *Alternatively, you can use `uv` for a significantly faster, drop-in replacement resolver: `uv pip install -r requirements.txt`.*
 
-### 3. BigQuery Provisioning
+### 3. BigQuery Provisioning & MCP Enablement
 Execute the startup script to create the necessary dataset (`gemini_analytics`) and the base metrics table within your GCP infrastructure according to your project configurations.
 ```bash
 ./start.sh
+```
+
+You must also explicitly enable the native BigQuery MCP service on your project infrastructure:
+```bash
+gcloud beta services mcp enable bigquery.googleapis.com --project="your-gcp-project-id"
 ```
 
 ---
