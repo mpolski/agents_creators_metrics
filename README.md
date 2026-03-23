@@ -11,6 +11,8 @@ Currently, the native Gemini Enterprise Analytics UI lack two critical dimension
 ### The Solution
 We solve this by actively combining data from the **Discovery Engine API** and Google Cloud **Audit Logs** to construct a unified analytics hub in BigQuery. Once the data is enriched and centralized in BigQuery, we deploy an **ADK-based conversational agent** to unlock the true potential of the data—allowing non-technical users to interact with and query these complex metrics entirely using native natural language.
 
+![Diagram](./images/diagram.png)
+
 ---
 
 ## Phase 1: Data Pipeline & BigQuery Infrastructure
@@ -80,7 +82,6 @@ Once the data is flowing into BigQuery, this repository provides a powerful, pre
 
 ### The Vision: Empowering Change Management
 Imagine deploying this ADK agent to **Vertex AI Agent Engine** and sharing its natural-language conversational interface directly with your Change Management, Platform Adoption, or Executive teams. Instead of manually writing SQL queries or building complex dashboards, non-technical stakeholders can simply ask the agent about specific data insights.
-
 ![ADK Agent Demo](./images/adk_agent_demo.png)
 
 ### Running the Agent
