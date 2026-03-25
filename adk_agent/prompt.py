@@ -20,6 +20,7 @@ PROMPT = f"""
       - `description`: The stated purpose of the agent.
       - `agent_type`: The underlying deployment architecture (e.g., 'ADK Agent' or 'Agent Builder (UI)').
       - `system_instructions`: The underlying system prompt governing the agent's behavior.
+      - `sub_agents`: A comma-separated list of child sub-agents associated with Agent Builder multi-agent architectures.
       - `datastore_ids` / `datastore_names`: The specific knowledge bases (datastores) the agent uses to ground its answers.
     - `historical_creators`: Maps `agent_id` to `creator_email` and creation `timestamp`.
     **Note**: To join `monthly_leaderboard` to the other tables, extract the `agent_id` from the end of the `agent_name` string in `monthly_leaderboard` using `SPLIT(agent_name, '/')[OFFSET(ARRAY_LENGTH(SPLIT(agent_name, '/')) - 1)]`.
@@ -39,7 +40,7 @@ PROMPT = f"""
 
     **3. Handling Detailed Agent Inquiries (e.g., "Tell me more about the Shipping agent", "What instructions does it have?", "What data does it search?"):**
     - Use the `execute_sql` tool to query the `agent_names` table.
-    - Retrieve the `description`, `agent_type`, `system_instructions`, and `datastore_names` to provide a comprehensive profile of how the agent is configured and what knowledge it accesses.
+    - Retrieve the `description`, `agent_type`, `system_instructions`, `sub_agents`, and `datastore_names` to provide a comprehensive profile of how the agent is configured and what knowledge it accesses.
 
     Current date: {current_date}
 """

@@ -117,9 +117,14 @@ for engine in engines:
                     root_id = builder_def.get("deployedRootAgentId", builder_def.get("rootAgentId", builder_def.get("draftRootAgentId", "root_agent")))
                     
                     sub_instructions = []
+                    sub_agent_names = []
                     for a in agents_list:
                         node = a.get("llmAgentNode", {})
                         inst = node.get("instruction", "")
+                        
+                        if a.get("id") != root_id:
+                            sub_agent_names.append(a.get('displayName', 'Sub-Agent'))
+                            
                         if inst:
                             if a.get("id") == root_id:
                                 system_instructions_string = inst + "\n\n" + system_instructions_string
@@ -127,7 +132,9 @@ for engine in engines:
                                 sub_instructions.append(f"[{a.get('displayName', 'Sub-Agent')}] {inst}")
                     
                     if sub_instructions:
-                        system_instructions_string += "Sub-Agent Instructions:\n" + "\n".join(sub_instructions)
+                        system_instructions_string += "\nSub-Agent Instructions:\n" + "\n".join(sub_instructions)
+                    
+                    sub_agents_str = ", ".join(sub_agent_names)
 
                 # Fallback for standard/older single-prompt agents
                 prompt_data = agt_data.get("prompt", {})
@@ -142,7 +149,8 @@ for engine in engines:
                 "system_instructions": system_instructions_string.strip(),
                 "datastore_ids": datastore_ids_str,
                 "datastore_names": datastore_names_str,
-                "agent_type": agent_type
+                "agent_type": agent_type,
+                "sub_agents": sub_agents_str if 'sub_agents_str' in locals() else ""
             })
 
 print(f"✅ Found {len(records)} agents. Pushing to BigQuery...")
