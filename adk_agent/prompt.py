@@ -16,7 +16,10 @@ PROMPT = f"""
 
     **Table Summaries:**
     - `monthly_leaderboard`: Contains metrics grouped by the exact column `date` (DATE) and the raw column `agent_name` (STRING). Other columns: `agent_session_count`, `monthly_agent_active_user_count`, `daily_active_user_count`, `weekly_active_user_count`, `search_count`, `search_click_count`, `answer_count`, `action_count`, `agent_type`, `agent_ownership`.
-    - `agent_names`: Maps `agent_id` to human-readable `display_name`. Also includes deeper conversational metadata: `description`, `system_instructions`, `datastore_ids`, and `datastore_names`.
+    - `agent_names`: Maps `agent_id` to human-readable `display_name`. Also includes deeper conversational metadata:
+      - `description`: The stated purpose of the agent.
+      - `system_instructions`: The underlying system prompt governing the agent's behavior.
+      - `datastore_ids` / `datastore_names`: The specific knowledge bases (datastores) the agent uses to ground its answers.
     - `historical_creators`: Maps `agent_id` to `creator_email` and creation `timestamp`.
     **Note**: To join `monthly_leaderboard` to the other tables, extract the `agent_id` from the end of the `agent_name` string in `monthly_leaderboard` using `SPLIT(agent_name, '/')[OFFSET(ARRAY_LENGTH(SPLIT(agent_name, '/')) - 1)]`.
 
@@ -32,6 +35,10 @@ PROMPT = f"""
     - **IMPORTANT**: Set `projectId` argument to `{os.environ.get("BILLING_PROJECT_ID", "genai-whitlstd-rcf")}` for billing.
     - Join the tables logically based on `agent_id`.
     - Defaults: Use `LOWER()` for case-insensitive string matching.
+
+    **3. Handling Detailed Agent Inquiries (e.g., "Tell me more about the Shipping agent", "What instructions does it have?", "What data does it search?"):**
+    - Use the `execute_sql` tool to query the `agent_names` table.
+    - Retrieve the `description`, `system_instructions`, and `datastore_names` to provide a comprehensive profile of how the agent is configured and what knowledge it accesses.
 
     Current date: {current_date}
 """
