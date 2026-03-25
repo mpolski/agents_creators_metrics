@@ -44,6 +44,28 @@ for engine in engines:
     if not engine_name:
         continue
         
+    # A. Fetch Engine DataStores
+    engine_details_url = f"https://discoveryengine.googleapis.com/v1/{engine_name}"
+    eng_res = requests.get(engine_details_url, headers=headers)
+    datastore_ids_str = ""
+    datastore_names_str = ""
+    
+    if eng_res.status_code == 200:
+        eng_data = eng_res.json()
+        data_store_ids = eng_data.get("dataStoreIds", [])
+        datastore_ids_str = ",".join(data_store_ids)
+        
+        # B. Fetch DataStore Names (Optional but preferred)
+        ds_names = []
+        for ds_id in data_store_ids:
+            ds_url = f"https://discoveryengine.googleapis.com/v1/projects/{PROJECT_ID}/locations/{LOCATION}/collections/default_collection/dataStores/{ds_id}"
+            ds_res = requests.get(ds_url, headers=headers)
+            if ds_res.status_code == 200:
+                ds_names.append(ds_res.json().get("displayName", ds_id))
+            else:
+                ds_names.append(ds_id)
+        datastore_names_str = ",".join(ds_names)
+
     # Fetch Assistants
     assistants_url = f"https://discoveryengine.googleapis.com/v1alpha/{engine_name}/assistants"
     ast_res = requests.get(assistants_url, headers=headers)
@@ -70,9 +92,29 @@ for engine in engines:
             agent_id = raw_agt_name.split("/")[-1]
             display_name = agt.get("displayName", "Unknown")
             
+            # C. Fetch Agent Details (Specific Endpoint)
+            agt_details_url = f"https://discoveryengine.googleapis.com/v1alpha/{raw_agt_name}"
+            agt_det_res = requests.get(agt_details_url, headers=headers)
+            
+            description_string = ""
+            system_instructions_string = ""
+            
+            if agt_det_res.status_code == 200:
+                agt_data = agt_det_res.json()
+                description_string = agt_data.get("description", "")
+                
+                # The system instruction might be nested in `prompt.systemInstruction`
+                prompt_data = agt_data.get("prompt", {})
+                system_instructions_string = prompt_data.get("systemInstruction", agt_data.get("systemInstruction", ""))
+            
+            # D. Update the Data Record
             records.append({
                 "agent_id": agent_id,
-                "display_name": display_name
+                "display_name": display_name,
+                "description": description_string,
+                "system_instructions": system_instructions_string,
+                "datastore_ids": datastore_ids_str,
+                "datastore_names": datastore_names_str
             })
 
 print(f"✅ Found {len(records)} agents. Pushing to BigQuery...")

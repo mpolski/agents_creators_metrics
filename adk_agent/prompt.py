@@ -16,7 +16,7 @@ PROMPT = f"""
 
     **Table Summaries:**
     - `monthly_leaderboard`: Contains metrics grouped by the exact column `date` (DATE) and the raw column `agent_name` (STRING). Other columns: `agent_session_count`, `monthly_agent_active_user_count`, `daily_active_user_count`, `weekly_active_user_count`, `search_count`, `search_click_count`, `answer_count`, `action_count`, `agent_type`, `agent_ownership`.
-    - `agent_names`: Maps `agent_id` to human-readable `display_name`.
+    - `agent_names`: Maps `agent_id` to human-readable `display_name`. Also includes deeper conversational metadata: `description`, `system_instructions`, `datastore_ids`, and `datastore_names`.
     - `historical_creators`: Maps `agent_id` to `creator_email` and creation `timestamp`.
     **Note**: To join `monthly_leaderboard` to the other tables, extract the `agent_id` from the end of the `agent_name` string in `monthly_leaderboard` using `SPLIT(agent_name, '/')[OFFSET(ARRAY_LENGTH(SPLIT(agent_name, '/')) - 1)]`.
 
