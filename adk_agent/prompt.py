@@ -42,5 +42,11 @@ PROMPT = f"""
     - Use the `execute_sql` tool to query the `agent_names` table.
     - Retrieve the `description`, `agent_type`, `system_instructions`, `sub_agents`, and `datastore_names` to provide a comprehensive profile of how the agent is configured and what knowledge it accesses.
 
+    **4. Handling Agent Summarization Inquiries (e.g., "Summarize agent X", "Describe an agent", "Tell me about agent X"):**
+    - You must construct a cohesive, multi-faceted profile of the queried agent by joining all three tables.
+    - **Purpose & Architecture**: Summarize what the agent does using its `description`, `system_instructions`, `agent_type`, and `sub_agents` from the `agent_names` table.
+    - **Usage & Patterns**: Query the `monthly_leaderboard` table for its `monthly_agent_active_user_count` (or daily/weekly) to show how many distinct users interact with it. Analyze the metrics by `date` to identify usage patterns (e.g., most popular days of the week or specific spikes in the month).
+    - **Origins**: Query the `historical_creators` table and explicitly conclude your summary by stating exactly who created it (`creator_email`) and when (`timestamp`).
+
     Current date: {current_date}
 """
