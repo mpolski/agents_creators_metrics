@@ -90,7 +90,7 @@ for engine in engines:
             if not raw_agt_name:
                 continue
             agent_id = raw_agt_name.split("/")[-1]
-            display_name = agt.get("displayName", "Unknown")
+            display_name = agt.get("displayName", agt.get("draftDisplayName", "Unknown"))
             
             # C. Fetch Agent Details (Specific Endpoint)
             agt_details_url = f"https://discoveryengine.googleapis.com/v1alpha/{raw_agt_name}"
@@ -101,17 +101,20 @@ for engine in engines:
             
             if agt_det_res.status_code == 200:
                 agt_data = agt_det_res.json()
-                description_string = agt_data.get("description", "")
+                
+                # Update display_name string if specific endpoint has a richer one
+                display_name = agt_data.get("displayName", agt_data.get("draftDisplayName", display_name))
+                description_string = agt_data.get("description", agt_data.get("draftDescription", ""))
                 
                 # ADK Agent or Agent Builder UI categorization
                 agent_type = "Unknown"
                 if "adkAgentDefinition" in agt_data:
                     agent_type = "ADK Agent"
-                elif "agentBuilderDefinition" in agt_data:
+                elif "lowCodeAgentDefinition" in agt_data:
                     agent_type = "Agent Builder (UI)"
-                    builder_def = agt_data["agentBuilderDefinition"]
-                    agents_list = builder_def.get("draftAgents", builder_def.get("agents", []))
-                    root_id = builder_def.get("deployedRootAgentId", builder_def.get("draftRootAgentId", "root_agent"))
+                    builder_def = agt_data["lowCodeAgentDefinition"]
+                    agents_list = builder_def.get("draftAgents", builder_def.get("nodes", builder_def.get("deployedNodes", builder_def.get("agents", []))))
+                    root_id = builder_def.get("deployedRootAgentId", builder_def.get("rootAgentId", builder_def.get("draftRootAgentId", "root_agent")))
                     
                     sub_instructions = []
                     for a in agents_list:
