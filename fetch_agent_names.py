@@ -103,18 +103,43 @@ for engine in engines:
                 agt_data = agt_det_res.json()
                 description_string = agt_data.get("description", "")
                 
-                # The system instruction might be nested in `prompt.systemInstruction`
+                # ADK Agent or Agent Builder UI categorization
+                agent_type = "Unknown"
+                if "adkAgentDefinition" in agt_data:
+                    agent_type = "ADK Agent"
+                elif "agentBuilderDefinition" in agt_data:
+                    agent_type = "Agent Builder (UI)"
+                    builder_def = agt_data["agentBuilderDefinition"]
+                    agents_list = builder_def.get("draftAgents", builder_def.get("agents", []))
+                    root_id = builder_def.get("deployedRootAgentId", builder_def.get("draftRootAgentId", "root_agent"))
+                    
+                    sub_instructions = []
+                    for a in agents_list:
+                        node = a.get("llmAgentNode", {})
+                        inst = node.get("instruction", "")
+                        if inst:
+                            if a.get("id") == root_id:
+                                system_instructions_string = inst + "\n\n" + system_instructions_string
+                            else:
+                                sub_instructions.append(f"[{a.get('displayName', 'Sub-Agent')}] {inst}")
+                    
+                    if sub_instructions:
+                        system_instructions_string += "Sub-Agent Instructions:\n" + "\n".join(sub_instructions)
+
+                # Fallback for standard/older single-prompt agents
                 prompt_data = agt_data.get("prompt", {})
-                system_instructions_string = prompt_data.get("systemInstruction", agt_data.get("systemInstruction", ""))
+                if not system_instructions_string:
+                    system_instructions_string = prompt_data.get("systemInstruction", agt_data.get("systemInstruction", ""))
             
             # D. Update the Data Record
             records.append({
                 "agent_id": agent_id,
                 "display_name": display_name,
                 "description": description_string,
-                "system_instructions": system_instructions_string,
+                "system_instructions": system_instructions_string.strip(),
                 "datastore_ids": datastore_ids_str,
-                "datastore_names": datastore_names_str
+                "datastore_names": datastore_names_str,
+                "agent_type": agent_type
             })
 
 print(f"✅ Found {len(records)} agents. Pushing to BigQuery...")
