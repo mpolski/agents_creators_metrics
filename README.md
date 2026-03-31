@@ -59,26 +59,13 @@ Running `./setup_sink.sh` provisions a unique Writer Identity for the sink, auto
    uv pip install -r requirements.txt
    ```
 
-3. **Provision BigQuery (Dataset and Tables) & Create View:**
-   Execute the startup script to create the necessary dataset (`gemini_analytics`) and the base metrics table.
+3. **Run Master Setup Script (Infra + Tables + View):**
+   Run the single setup script to provision the dataset, tables, live logging sink, and the unified metrics view in the correct order:
    ```bash
-   chmod +x deploy/start.sh
-   ./deploy/start.sh
+   chmod +x deploy/setup.sh
+   ./deploy/setup.sh
    ```
 
-4. **Create View (Run after step 2 of Ingestion below!):**
-   The view joins `monthly_leaderboard` and `agent_names`. The `agent_names` table is only created by the ingestion script running for the first time. For fresh setup, **run data ingestion once first** before creating the view!
-   ```bash
-   chmod +x deploy/create_unified_view.sh
-   ./deploy/create_unified_view.sh
-   ```
-
-4. **Provision Cloud Logging Sink (For Live Events):**
-   Creates a live Logging Sink to stream *future* creations directly into BigQuery.
-   ```bash
-   chmod +x deploy/setup_sink.sh
-   ./deploy/setup_sink.sh
-   ```
 
 ### Data Ingestion & Sync
 
