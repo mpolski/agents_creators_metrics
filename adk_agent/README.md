@@ -70,7 +70,14 @@ gcloud iam service-accounts add-iam-policy-binding $ADK_SA \
    ```
 3. **Configure Environment:**
    Ensure your `adk_agent/.env` file is properly configured with your `TARGET_SA_EMAIL` and `DATA_PROJECT_ID`.
-4. **Spin up the Web Client:**
+
+4. **Authenticate with Google Cloud:**
+   Run the application-default login to allow impersonation:
+   ```bash
+   gcloud auth application-default login
+   ```
+
+5. **Spin up the Web Client:**
    Run the local ADK interface to start chatting:
    ```bash
    adk web adk_agent

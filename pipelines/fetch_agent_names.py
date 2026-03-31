@@ -91,6 +91,7 @@ for engine in engines:
                 continue
             agent_id = raw_agt_name.split("/")[-1]
             display_name = agt.get("displayName", agt.get("draftDisplayName", "Unknown"))
+            print(f"🔍 Agent '{display_name}' (ID: {agent_id}) belongs to Engine ID: {engine_name.split('/')[-1]}")
             
             # C. Fetch Agent Details (Specific Endpoint)
             agt_details_url = f"https://discoveryengine.googleapis.com/v1alpha/{raw_agt_name}"

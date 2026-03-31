@@ -1,0 +1,24 @@
+Error: {
+  "error": {
+    "code": 403,
+    "message": "Your application is authenticating by using local Application Default Credentials. The discoveryengine.googleapis.com API requires a quota project, which is not set by default. To learn how to set your quota project, see https://cloud.google.com/docs/authentication/adc-troubleshooting/user-creds .",
+    "status": "PERMISSION_DENIED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+        "reason": "SERVICE_DISABLED",
+        "domain": "googleapis.com",
+        "metadata": {
+          "service": "discoveryengine.googleapis.com",
+          "consumer": "projects/764086051850"
+        }
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.LocalizedMessage",
+        "locale": "en-US",
+        "message": "Your application is authenticating by using local Application Default Credentials. The discoveryengine.googleapis.com API requires a quota project, which is not set by default. To learn how to set your quota project, see https://cloud.google.com/docs/authentication/adc-troubleshooting/user-creds ."
+      }
+    ]
+  }
+}
+

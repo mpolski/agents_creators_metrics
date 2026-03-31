@@ -5,7 +5,7 @@ This project provides a robust, automated pipeline to export analytics metrics f
 
 ### The Problem
 Currently, the native Gemini Enterprise Analytics UI lack two critical dimensions:
-1. **Human-Readable Agent Names:** Data is only tracked against an opaque `Engine ID`, not the actual display name of the agent (e.g. "Shipping Cost Analyzer").
+1. **Human-Readable Agent Names:** Data is only tracked against an opaque `Agent ID`, not the actual display name of the agent (e.g. "Shipping Cost Analyzer").
 2. **Creator Accountability:** It is natively impossible to see *who* created an agent and *when* it was created directly within the analytics suite.
 
 ### The Solution
@@ -45,7 +45,7 @@ When executing setup scripts from your laptop via `gcloud auth application-defau
 **2. The Log Sink Service Account**
 Running `./setup_sink.sh` provisions a unique Writer Identity for the sink, automatically granting it **BigQuery Data Editor** to stream agent creations.
 
-### Pipeline Setup & Installation
+### Pipeline Setup & Installation (One-Time)
 
 1. **Configure the Environment:**
    ```bash
@@ -53,26 +53,48 @@ Running `./setup_sink.sh` provisions a unique Writer Identity for the sink, auto
    ```
    Define your active `PROJECT_ID`, engine info, and dataset specifications inside `.env`.
 
-2. **Install Python Dependencies:**
+2. **Install Python Dependencies (using `uv`):**
    ```bash
-   pip install -r requirements.txt
+   uv venv
+   uv pip install -r requirements.txt
    ```
 
-3. **BigQuery Provisioning:**
-   Execute the startup script to create the necessary dataset (`gemini_analytics`) and the base metrics table.
+3. **Provision BigQuery (Dataset and Tables) & Create View:**
+   Execute the startup script to create the dataset and base tables, then run the view creation script for easier querying:
    ```bash
-   ./start.sh
+   chmod +x deploy/start.sh
+   ./deploy/start.sh
+   
+   chmod +x deploy/create_unified_view.sh
+   ./deploy/create_unified_view.sh
    ```
 
-### Data Ingestion Steps
-Run these targeted scripts to populate the tables:
-1. **`python metrics_to_bq.py`**: Pushes raw Analytics metrics to `monthly_leaderboard`.
-2. **`python fetch_agent_names.py`**: Extracts display names for `agent_names`.
-3. **`./export_historical_creators.sh`**: Scans past 365 days of Audit Logs to backfill `historical_creators`.
-4. **`./setup_sink.sh`**: Creates a live Logging Sink to stream *future* creations directly into BigQuery.
+4. **Provision Cloud Logging Sink (For Live Events):**
+   Creates a live Logging Sink to stream *future* creations directly into BigQuery.
+   ```bash
+   chmod +x deploy/setup_sink.sh
+   ./deploy/setup_sink.sh
+   ```
+
+### Data Ingestion & Sync
+
+1. **One-Time Backfill of Historical Creators:**
+   Scans past 365 days of Audit Logs to backfill `historical_creators`.
+   ```bash
+   chmod +x pipelines/export_historical_creators.sh
+   ./pipelines/export_historical_creators.sh
+   ```
+   **NOTE:** This task will take serveral minutes to complete.
+
+2. **Periodic Data Ingestion (Sync) - Unified Script:**
+   Run the unified sync script to pull the latest display names and usage metrics from Vertex API and push them to BigQuery:
+   ```bash
+   chmod +x pipelines/sync_data.sh
+   ./pipelines/sync_data.sh
+   ```
 
 **Operational Cadence (Scheduling):**
-Recommendation: Deploy `metrics_to_bq.py` and `fetch_agent_names.py` to **Google Cloud Run Jobs** and trigger them nightly via **Google Cloud Scheduler**.
+Recommendation: Run `./pipelines/sync_data.sh` nightly using your local scheduler or deploy it as a **Google Cloud Run Job** triggered by **Google Cloud Scheduler**.
 
 ---
 
