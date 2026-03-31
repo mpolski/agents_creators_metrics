@@ -60,11 +60,15 @@ Running `./setup_sink.sh` provisions a unique Writer Identity for the sink, auto
    ```
 
 3. **Provision BigQuery (Dataset and Tables) & Create View:**
-   Execute the startup script to create the dataset and base tables, then run the view creation script for easier querying:
+   Execute the startup script to create the necessary dataset (`gemini_analytics`) and the base metrics table.
    ```bash
    chmod +x deploy/start.sh
    ./deploy/start.sh
-   
+   ```
+
+4. **Create View (Run after step 2 of Ingestion below!):**
+   The view joins `monthly_leaderboard` and `agent_names`. The `agent_names` table is only created by the ingestion script running for the first time. For fresh setup, **run data ingestion once first** before creating the view!
+   ```bash
    chmod +x deploy/create_unified_view.sh
    ./deploy/create_unified_view.sh
    ```
