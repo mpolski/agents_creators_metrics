@@ -2,6 +2,10 @@
 
 This directory contains a pre-configured **Vertex AI Agent** built specifically with the Agent Development Kit (ADK) to chat naturally with your enriched BigQuery metrics using the native BigQuery MCP server.
 
+This guide offers two options for testing and deploying the agent:
+* [Option 1: Testing the Agent with ADK web locally](#option-1-testing-the-agent-with-adk-web-locally)
+* [Option 2: Using Agent Starter Pack for testing locally and Deploying to Agent Engine](#option-2-using-agent-starter-pack-for-testing-locally-and-deploying-to-agent-engine)
+
 ## ADK Prerequisites
 Before running this agent, you must have the **Agent Development Kit (ADK)** installed. 
 While this project's `requirements.txt` installs it automatically into your environment, you can also install the ADK globally via:
@@ -58,7 +62,7 @@ gcloud iam service-accounts add-iam-policy-binding $ADK_SA \
   --role="roles/iam.serviceAccountTokenCreator"
 ```
 
-## 3. Testing the Agent Locally
+## Option 1. Testing the Agent with ADK web locally
 
 1. **Navigate to the parent directory:**
    ```bash
@@ -83,3 +87,40 @@ gcloud iam service-accounts add-iam-policy-binding $ADK_SA \
    adk web adk_agent
    ```
    *(Alternatively, you can test the raw execution via `python adk_agent/run_local_test.py`)*
+
+## Option 2. Using Agent Starter Pack for testing locally and Deploying to Agent Engine
+
+If you prefer to use the **Agent Starter Pack**, follow these simplified steps to test locally and deploy to Agent Engine.
+
+1. **Prerequisites**: Refer to the [Agent Starter Pack documentation](https://googlecloudplatform.github.io/agent-starter-pack/guide/getting-started.html) for installation instructions.
+
+2. **Enhance the Agent**:
+   ```bash
+   uvx agent-starter-pack enhance
+   ```
+
+3. **Test Locally**:
+   ```bash
+   make install
+   make playground
+   ```
+
+4. **Prepare for Deployment**:
+   Copy the example environment file and update it with your settings:
+   ```bash
+   cp .env.example .env
+   ```
+
+5. **Deploy**:
+   ```bash
+   make deploy
+   ```
+
+Upon a successful deployment, you will see an output similar to the following. You can follow the link to the Playground to test the deployed agent from the Agent Engine:
+
+```
+✅ Deployment successful!
+Service Account: service-<PROJECT_NUMBER>@gcp-sa-aiplatform-re.iam.gserviceaccount.com
+
+📊 Open Console Playground: https://console.cloud.google.com/vertex-ai/agents/agent-engines/locations/us-central1/agent-engines/<AGENT_ID>/playground?project=<PROJECT_ID>
+```
