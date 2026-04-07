@@ -24,7 +24,7 @@ The data pipeline exports, enriches, and merges disparate data streams into thre
    - **Source:** Discovery Engine API (`exportMetrics`)
    - **Purpose:** Stores raw session and usage metrics (e.g., `agent_session_count`, `search_click_count`) grouped by `date` for activity reporting.
 2. **`agent_names`**
-   - **Source:** Discovery Engine API (Assistants/Agents enumeration)
+   - **Source:** Discovery Engine API (`Assistants/Agents enumeration`)
    - **Purpose:** Maps opaque backend node IDs to human-readable agent `display_name`s.
 3. **`historical_creators`**
    - **Source:** Google Cloud Audit Logs
@@ -47,6 +47,11 @@ Running `./setup_sink.sh` provisions a unique Writer Identity for the sink, auto
 
 ### Pipeline Setup & Installation (One-Time)
 
+Navigate to the `analytics_pipeline` directory:
+```bash
+cd analytics_pipeline
+```
+
 1. **Configure the Environment:**
    ```bash
    cp .env_template .env
@@ -56,37 +61,39 @@ Running `./setup_sink.sh` provisions a unique Writer Identity for the sink, auto
 2. **Install Python Dependencies (using `uv`):**
    ```bash
    uv venv
-   uv pip install -r analytics_pipeline/data_pipelines/requirements.txt
+   uv pip install -r data_pipelines/requirements.txt
    ```
 
 3. **Run Master Setup Script (Infra + Tables + View):**
    Run the single setup script to provision the dataset, tables, live logging sink, and the unified metrics view in the correct order:
    ```bash
-   chmod +x analytics_pipeline/infra_setup/setup.sh
-   ./analytics_pipeline/infra_setup/setup.sh
+   chmod +x infra_setup/setup.sh
+   ./infra_setup/setup.sh
    ```
-   *Note: This script internally calls \`analytics_pipeline/infra_setup/create_unified_view.sh\` to create the BigQuery view. You can also run \`analytics_pipeline/infra_setup/create_unified_view.sh\` independently to recreate the view if needed.*
+   *Note: This script internally calls `infra_setup/create_unified_view.sh` to create the BigQuery view. You can also run `infra_setup/create_unified_view.sh` independently to recreate the view if needed.*
 
 
 ### Data Ingestion & Sync
 
+Assume you are in the `analytics_pipeline` directory:
+
 1. **One-Time Backfill of Historical Creators:**
    Scans past 365 days of Audit Logs to backfill `historical_creators`.
    ```bash
-   chmod +x analytics_pipeline/data_pipelines/export_historical_creators.sh
-   ./analytics_pipeline/data_pipelines/export_historical_creators.sh
+   chmod +x data_pipelines/export_historical_creators.sh
+   ./data_pipelines/export_historical_creators.sh
    ```
    **NOTE:** This task will take serveral minutes to complete.
 
 2. **Periodic Data Ingestion (Sync) - Unified Script:**
    Run the unified sync script to pull the latest display names and usage metrics from Vertex API and push them to BigQuery:
    ```bash
-   chmod +x analytics_pipeline/data_pipelines/sync_data.sh
-   ./analytics_pipeline/data_pipelines/sync_data.sh
+   chmod +x data_pipelines/sync_data.sh
+   ./data_pipelines/sync_data.sh
    ```
 
 **Operational Cadence (Scheduling):**
-Recommendation: Run `./analytics_pipeline/data_pipelines/sync_data.sh` nightly using your local scheduler or deploy it as a **Google Cloud Run Job** triggered by **Google Cloud Scheduler**.*
+Recommendation: Run `./data_pipelines/sync_data.sh` nightly using your local scheduler or deploy it as a **Google Cloud Run Job** triggered by **Google Cloud Scheduler**.*
 
 ---
 

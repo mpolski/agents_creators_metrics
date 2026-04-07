@@ -1,9 +1,19 @@
 #!/bin/bash
 
-# 1. Load the variables from the .env file automatically
-set -a
-source .env
-set +a
+# 1. Load the variables from the .env file automatically if it exists
+if [ -f .env ]; then
+  echo "🔍 Loading environment variables from .env"
+  set -a
+  source .env
+  set +a
+else
+  echo "⚠️ .env file not found. Falling back to environment variables."
+fi
+
+# Fallback to gcloud if PROJECT_ID not set in .env
+if [ -z "$PROJECT_ID" ]; then
+  PROJECT_ID=$(gcloud config get-value project)
+fi
 
 echo "🚀 Configuring Log Sink '${SINK_NAME}' in project: ${PROJECT_ID}..."
 

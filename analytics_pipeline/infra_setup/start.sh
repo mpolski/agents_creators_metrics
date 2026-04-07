@@ -1,21 +1,48 @@
-# 1. List projects to find your target Project ID
-gcloud projects list 
+#!/bin/bash
+# analytics_pipeline/infra_setup/start.sh - Initializes BigQuery dataset and table.
 
-# 2. Set the active project (replace <YOUR_PROJECT_ID> with the actual ID)
-gcloud config set project <YOUR_PROJECT_ID>
+set -e
 
-# 3. Export your environment variables
-export PROJECT_ID=$(gcloud config get-value project)
-export DATASET_ID=gemini_analytics
-export TABLE_ID=monthly_leaderboard
+# Load environment variables from .env file if it exists
+if [ -f .env ]; then
+  echo "🔍 Loading environment variables from .env"
+  set -a
+  source .env
+  set +a
+else
+  echo "⚠️ .env file not found. Falling back to environment variables."
+fi
 
-# 4. Initialize the BigQuery Dataset
+# Fallback to gcloud if PROJECT_ID not set in .env
+if [ -z "$PROJECT_ID" ]; then
+  PROJECT_ID=$(gcloud config get-value project)
+fi
+
+# Verify required variables
+if [ -z "$PROJECT_ID" ] || [ -z "$DATASET_ID" ] || [ -z "$TABLE_ID" ]; then
+  echo "❌ Error: Missing required variables (PROJECT_ID, DATASET_ID, TABLE_ID)."
+  echo "Please check your .env file or environment variables."
+  exit 1
+fi
+
+# Use BQ_LOCATION if set, fallback to US
+LOCATION=${BQ_LOCATION:-US}
+
+echo "🚀 Provisioning BigQuery Dataset and metrics table..."
+echo "Project: $PROJECT_ID"
+echo "Dataset: $DATASET_ID"
+echo "Table: $TABLE_ID"
+echo "Location: $LOCATION"
+
+# Initialize the BigQuery Dataset
 bq mk \
-  --location=US \
+  --location=$LOCATION \
   --dataset \
-  ${PROJECT_ID}:${DATASET_ID}
+  ${PROJECT_ID}:${DATASET_ID} || echo "⚠️ Dataset might already exist."
 
-# 5. Initialize the BigQuery Table
+# Initialize the BigQuery Table
 bq mk \
   --table \
-  ${PROJECT_ID}:${DATASET_ID}.${TABLE_ID}
+  ${PROJECT_ID}:${DATASET_ID}.${TABLE_ID} || echo "⚠️ Table might already exist."
+
+echo "✅ Success!"
