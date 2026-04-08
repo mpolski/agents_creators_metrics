@@ -23,7 +23,7 @@ The data pipeline exports, enriches, and merges disparate data streams into thre
 1. **`monthly_leaderboard`**
    - **Source:** Discovery Engine API (`exportMetrics`)
    - **Purpose:** Stores raw session and usage metrics grouped by `date` for activity reporting.
-   - **Exported Metrics typically include:**
+   - **Exported Metrics typically include:** (Refer to [Gemini Enterprise Access Metrics](https://docs.cloud.google.com/gemini/enterprise/docs/access-metrics) for the full list)
      - `monthly_agent_active_user_count`: Number of active users per agent per month.
      - `agent_session_count`: Total sessions for the agent.
      - `search_query_count`: Number of search queries handled by the agent.
