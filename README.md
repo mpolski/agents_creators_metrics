@@ -22,7 +22,12 @@ The data pipeline exports, enriches, and merges disparate data streams into thre
 
 1. **`monthly_leaderboard`**
    - **Source:** Discovery Engine API (`exportMetrics`)
-   - **Purpose:** Stores raw session and usage metrics (e.g., `agent_session_count`, `search_click_count`) grouped by `date` for activity reporting.
+   - **Purpose:** Stores raw session and usage metrics grouped by `date` for activity reporting.
+   - **Exported Metrics typically include:**
+     - `monthly_agent_active_user_count`: Number of active users per agent per month.
+     - `agent_session_count`: Total sessions for the agent.
+     - `search_query_count`: Number of search queries handled by the agent.
+     - `search_click_count`: Number of clicks on search results.
 2. **`agent_names`**
    - **Source:** Discovery Engine API (`Assistants/Agents enumeration`)
    - **Purpose:** Maps opaque backend node IDs to human-readable agent `display_name`s.
@@ -49,8 +54,8 @@ Running `infra_setup/setup_sink.sh` provisions a unique Writer Identity for the 
 
 1. **Clone the Repository:**
    ```bash
-   git clone <repository-url>
-   cd business_value_agent
+   git clone https://github.com/mpolski/agents_creators_metrics
+   cd agents_creators_metrics
    ```
 
 2. **Navigate to the `analytics_pipeline` directory:**
@@ -73,6 +78,12 @@ Running `infra_setup/setup_sink.sh` provisions a unique Writer Identity for the 
    ```bash
    uv venv
    uv pip install -r data_pipelines/requirements.txt
+   ```
+
+5. **Authenticate with Google Cloud:**
+   The scripts use Application Default Credentials (ADC) to interact with Google Cloud APIs. Authenticate your local environment:
+   ```bash
+   gcloud auth application-default login
    ```
 
 ### Infrastructure Setup
@@ -155,9 +166,82 @@ If you are already using Airflow, you can create a simple DAG with a `BashOperat
 
 Once the data is flowing into BigQuery, this repository provides a powerful, pre-configured **Vertex AI Agent** built with the Agent Development Kit (ADK) capable of chatting with this data natively using the BigQuery MCP.
 
-### The Vision: Empowering Change Management
-Imagine deploying this ADK agent to **Vertex AI Agent Engine** and sharing its natural-language conversational interface directly with your Change Management, Platform Adoption, or Executive teams. Instead of manually writing SQL queries or building complex dashboards, non-technical stakeholders can simply ask the agent about specific data insights.
 ![ADK Agent Demo](./images/adk_agent_demo.png)
 
-### Running the Agent
-For detailed instructions on configuring the local environment, provisioning the ADK service account, and testing this ADK agent locally, refer to the [ADK Agent documentation](./adk_agent/README.md).
+### Running the Agent Locally
+
+To run the agent locally and chat with your BigQuery data, follow these steps:
+
+1. **Install the Agent Development Kit (ADK):**
+   Follow the official instructions to install the ADK CLI: [ADK Get Started](https://adk.dev/get-started/python).
+   ```bash
+   pip install google-adk
+   ```
+
+2. **Enable BigQuery MCP Native Service:**
+   You must explicitly enable the native BigQuery MCP service on your project infrastructure:
+   ```bash
+   gcloud beta services mcp enable bigquery.googleapis.com --project="your-project-id"
+   ```
+
+3. **Create a Service Account for the Agent:**
+   The agent uses Service Account Impersonation to securely route to BigQuery MCP.
+   Create a Service Account:
+   ```bash
+   export PROJECT_ID="your-project-id"
+   export ADK_SA="your-sa-name@$PROJECT_ID.iam.gserviceaccount.com"
+   
+   gcloud iam service-accounts create your-sa-name --display-name="ADK Analytics Agent"
+   ```
+   Grant required permissions to the Service Account:
+   ```bash
+   gcloud projects add-iam-policy-binding $PROJECT_ID \
+     --member="serviceAccount:$ADK_SA" \
+     --role="roles/aiplatform.user"
+
+   gcloud projects add-iam-policy-binding $PROJECT_ID \
+     --member="serviceAccount:$ADK_SA" \
+     --role="roles/bigquery.dataViewer"
+
+   gcloud projects add-iam-policy-binding $PROJECT_ID \
+     --member="serviceAccount:$ADK_SA" \
+     --role="roles/bigquery.jobUser"
+     
+   gcloud projects add-iam-policy-binding $PROJECT_ID \
+     --member="serviceAccount:$ADK_SA" \
+     --role="roles/bigquery.metadataViewer"
+     
+   gcloud projects add-iam-policy-binding $PROJECT_ID \
+     --member="serviceAccount:$ADK_SA" \
+     --role="roles/mcp.toolUser"
+
+   gcloud projects add-iam-policy-binding $PROJECT_ID \
+     --member="serviceAccount:$ADK_SA" \
+     --role="roles/serviceusage.serviceUsageConsumer"
+   ```
+   Grant yourself permission to impersonate it:
+   ```bash
+   export USER_EMAIL="your-google-email@domain.com"
+   
+   gcloud iam service-accounts add-iam-policy-binding $ADK_SA \
+     --member="user:$USER_EMAIL" \
+     --role="roles/iam.serviceAccountTokenCreator"
+   ```
+
+4. **Configure Environment Variables:**
+   Copy the template and fill in the details:
+   ```bash
+   cp adk_agent/.env.template adk_agent/.env
+   ```
+   Fill in `TARGET_SA_EMAIL`, `DATA_PROJECT_ID`, and `MCP_ENDPOINT` in `adk_agent/.env`.
+
+5. **Authenticate with Google Cloud:**
+   ```bash
+   gcloud auth application-default login
+   ```
+
+6. **Run the Agent:**
+   Navigate to the parent directory and start the web interface:
+   ```bash
+   adk web
+   ```
