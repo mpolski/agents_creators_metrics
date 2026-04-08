@@ -23,14 +23,14 @@ The data pipeline exports, enriches, and merges disparate data streams into thre
 1. **`monthly_leaderboard`**
    - **Source:** Discovery Engine API (`exportMetrics`)
    - **Purpose:** Stores raw session and usage metrics grouped by `date` for activity reporting.
-   - **Exported Metrics typically include:** (Refer to [Gemini Enterprise Access Metrics](https://docs.cloud.google.com/gemini/enterprise/docs/access-metrics) for the full list)
-     - `monthly_agent_active_user_count`: Number of active users per agent per month.
-     - `agent_session_count`: Total sessions for the agent.
-     - `search_query_count`: Number of search queries handled by the agent.
-     - `search_click_count`: Number of clicks on search results.
+   - **Exported Metrics typically include:**
+     - **Monthly active agent users**: Number of unique users interacting with the agent per month.
+     - **Monthly agents used**: Total number of sessions or interactions indicating active usage.
+     - and [many more](https://docs.cloud.google.com/gemini/enterprise/docs/view-analytics)
 2. **`agent_names`**
    - **Source:** Discovery Engine API (`Assistants/Agents enumeration`)
    - **Purpose:** Maps opaque backend node IDs to human-readable agent `display_name`s.
+   - **Enriched Data includes:** `description`, `agent_type` (ADK or UI), and the underlying `system_instructions` governing the agent's behavior.
 3. **`historical_creators`**
    - **Source:** Google Cloud Audit Logs
    - **Purpose:** Maps agent IDs to their explicit creator email (`creator_email`) and creation `timestamp`.
