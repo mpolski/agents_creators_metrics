@@ -172,10 +172,11 @@ Once the data is flowing into BigQuery, this repository provides a powerful, pre
 
 To run the agent locally and chat with your BigQuery data, follow these steps:
 
-1. **Install the Agent Development Kit (ADK):**
+1. **Install the Agent Development Kit (ADK) and dependencies:**
    Follow the official instructions to install the ADK CLI: [ADK Get Started](https://adk.dev/get-started/python).
    ```bash
    pip install google-adk
+   pip install -r adk_agent/requirements.txt
    ```
 
 2. **Enable BigQuery MCP Native Service:**
