@@ -31,9 +31,13 @@ SINK_SA=$(gcloud logging sinks describe ${SINK_NAME} --project=${PROJECT_ID} --f
 echo "🔑 Granting BigQuery Data Editor access to: ${SINK_SA}..."
 
 # 4. Grant it access to your project's BigQuery
-gcloud projects add-iam-policy-binding ${PROJECT_ID} \
+if ! gcloud projects add-iam-policy-binding ${PROJECT_ID} \
   --member="${SINK_SA}" \
   --role="roles/bigquery.dataEditor" \
-  --condition=None
+  --condition=None; then
+    echo "⚠️ Failed to automatically grant IAM permission."
+    echo "Please ask an IAM Admin for project '${PROJECT_ID}' to run:"
+    echo "  gcloud projects add-iam-policy-binding ${PROJECT_ID} --member=\"${SINK_SA}\" --role=\"roles/bigquery.dataEditor\" --condition=None"
+fi
 
 echo "✅ Success! Future agent creation events will now stream to the '${DATASET_ID}' dataset."

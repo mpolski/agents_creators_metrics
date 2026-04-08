@@ -5,6 +5,7 @@ import requests
 import google.auth
 import google.auth.transport.requests
 from dotenv import load_dotenv
+import time
 
 def export_metrics():
     # 1. Load the variables from the .env file
@@ -44,6 +45,8 @@ def export_metrics():
         'x-goog-user-project': project_id
     }
     
+    # Note: Cross-project export is NOT supported by the discoveryengine API payload.
+    # The datasetId must be in the same project as the Engine.
     payload = {
         "outputConfig": {
             "bigqueryDestination": {
@@ -52,7 +55,6 @@ def export_metrics():
             }
         }
     }
-
     # 4. Fire the Request
     response = requests.post(url, headers=headers, data=json.dumps(payload))
     
@@ -60,6 +62,28 @@ def export_metrics():
         operation_name = response.json().get('name')
         print(f"✅ Success! Google is processing the export.")
         print(f"🔍 Operation ID: {operation_name}")
+        
+        # Poll for completion
+        poll_url = f"https://discoveryengine.googleapis.com/v1alpha/{operation_name}"
+        print("⏳ Waiting for export job to complete...")
+        
+        while True:
+            poll_resp = requests.get(poll_url, headers=headers)
+            if poll_resp.status_code == 200:
+                poll_data = poll_resp.json()
+                if poll_data.get("done"):
+                    if "error" in poll_data:
+                        print(f"❌ Export failed: {poll_data['error']}")
+                        sys.exit(1)
+                    else:
+                        print("🎉 Export completed successfully!")
+                        break
+            else:
+                print(f"⚠️ Failed to check operation status: {poll_resp.status_code}")
+            
+            time.sleep(10)
+            print(".", end="", flush=True)
+            
     else:
         print(f"❌ Error {response.status_code}: {response.text}")
 

@@ -1,9 +1,42 @@
 import os
+import time
 import requests
 from google.auth import default
 from google.auth.transport.requests import Request
 from google.cloud import bigquery
 from dotenv import load_dotenv
+
+def get_with_retry(url, headers, params=None, max_retries=5, initial_delay=1.0):
+    """Makes a GET request with exponential backoff for 429 errors."""
+    delay = initial_delay
+    for i in range(max_retries):
+        res = requests.get(url, headers=headers, params=params)
+        if res.status_code == 200:
+            return res
+        elif res.status_code == 429:
+            print(f"⚠️ Hit quota limit (429). Retrying in {delay} seconds...")
+            time.sleep(delay)
+            delay *= 2
+        else:
+            return res
+    return res
+
+def fetch_all_pages(url, headers, key):
+    """Fetches all items from a paginated Discovery Engine API endpoint."""
+    results = []
+    params = {}
+    while True:
+        res = get_with_retry(url, headers=headers, params=params)
+        if res.status_code != 200:
+            print(f"❌ Error fetching {url} after retries: {res.status_code} - {res.text}")
+            break
+        data = res.json()
+        results.extend(data.get(key, []))
+        page_token = data.get("nextPageToken")
+        if not page_token:
+            break
+        params["pageToken"] = page_token
+    return results
 
 # 1. Load variables from .env
 load_dotenv()
@@ -25,13 +58,7 @@ headers = {
 }
 
 print(f"🔍 Fetching Agent Names from Vertex AI...")
-response = requests.get(url, headers=headers)
-
-if response.status_code != 200:
-    print(f"❌ Error: {response.status_code} - {response.text}")
-    exit(1)
-
-engines = response.json().get("engines", [])
+engines = fetch_all_pages(url, headers, "engines")
 
 if not engines:
     print("⚠️ No agents found in this project/location.")
@@ -46,7 +73,7 @@ for engine in engines:
         
     # A. Fetch Engine DataStores
     engine_details_url = f"https://discoveryengine.googleapis.com/v1/{engine_name}"
-    eng_res = requests.get(engine_details_url, headers=headers)
+    eng_res = get_with_retry(engine_details_url, headers=headers)
     datastore_ids_str = ""
     datastore_names_str = ""
     
@@ -59,7 +86,7 @@ for engine in engines:
         ds_names = []
         for ds_id in data_store_ids:
             ds_url = f"https://discoveryengine.googleapis.com/v1/projects/{PROJECT_ID}/locations/{LOCATION}/collections/default_collection/dataStores/{ds_id}"
-            ds_res = requests.get(ds_url, headers=headers)
+            ds_res = get_with_retry(ds_url, headers=headers)
             if ds_res.status_code == 200:
                 ds_names.append(ds_res.json().get("displayName", ds_id))
             else:
@@ -68,11 +95,7 @@ for engine in engines:
 
     # Fetch Assistants
     assistants_url = f"https://discoveryengine.googleapis.com/v1alpha/{engine_name}/assistants"
-    ast_res = requests.get(assistants_url, headers=headers)
-    if ast_res.status_code != 200:
-        continue
-        
-    assistants = ast_res.json().get("assistants", [])
+    assistants = fetch_all_pages(assistants_url, headers, "assistants")
     for ast in assistants:
         ast_name = ast.get("name")
         if not ast_name:
@@ -80,11 +103,7 @@ for engine in engines:
             
         # Fetch Agents
         agents_url = f"https://discoveryengine.googleapis.com/v1alpha/{ast_name}/agents"
-        agt_res = requests.get(agents_url, headers=headers)
-        if agt_res.status_code != 200:
-            continue
-            
-        agents = agt_res.json().get("agents", [])
+        agents = fetch_all_pages(agents_url, headers, "agents")
         for agt in agents:
             raw_agt_name = agt.get("name", "")
             if not raw_agt_name:
@@ -95,7 +114,7 @@ for engine in engines:
             
             # C. Fetch Agent Details (Specific Endpoint)
             agt_details_url = f"https://discoveryengine.googleapis.com/v1alpha/{raw_agt_name}"
-            agt_det_res = requests.get(agt_details_url, headers=headers)
+            agt_det_res = get_with_retry(agt_details_url, headers=headers)
             
             description_string = ""
             system_instructions_string = ""

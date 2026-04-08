@@ -1,5 +1,5 @@
 #!/bin/bash
-# analytics_pipeline/infra_setup/start.sh - Initializes BigQuery dataset and table.
+# analytics_pipeline/infra_setup/setup_bq.sh - Initializes BigQuery dataset and table.
 
 set -e
 
@@ -35,14 +35,29 @@ echo "Table: $TABLE_ID"
 echo "Location: $LOCATION"
 
 # Initialize the BigQuery Dataset
-bq mk \
-  --location=$LOCATION \
-  --dataset \
-  ${PROJECT_ID}:${DATASET_ID} || echo "⚠️ Dataset might already exist."
+echo "🔍 Checking if dataset exists..."
+if ! bq show ${PROJECT_ID}:${DATASET_ID} > /dev/null 2>&1; then
+  echo "Creating dataset..."
+  if ! bq mk --location=$LOCATION --dataset ${PROJECT_ID}:${DATASET_ID}; then
+    echo "❌ Error: Failed to create dataset ${DATASET_ID}."
+    exit 1
+  fi
+  echo "✅ Dataset created."
+else
+  echo "ℹ️ Dataset already exists."
+fi
 
 # Initialize the BigQuery Table
-bq mk \
-  --table \
-  ${PROJECT_ID}:${DATASET_ID}.${TABLE_ID} || echo "⚠️ Table might already exist."
+echo "🔍 Checking if table exists..."
+if ! bq show ${PROJECT_ID}:${DATASET_ID}.${TABLE_ID} > /dev/null 2>&1; then
+  echo "Creating table..."
+  if ! bq mk --table ${PROJECT_ID}:${DATASET_ID}.${TABLE_ID}; then
+    echo "❌ Error: Failed to create table ${TABLE_ID}."
+    exit 1
+  fi
+  echo "✅ Table created."
+else
+  echo "ℹ️ Table already exists."
+fi
 
 echo "✅ Success!"

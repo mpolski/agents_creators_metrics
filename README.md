@@ -32,68 +32,122 @@ The data pipeline exports, enriches, and merges disparate data streams into thre
 
 *Note: We seamlessly join these tables in BigQuery by extracting the `agent_id` substring from the end of the `agent_name` column in the `monthly_leaderboard` table.*
 
-### Infrastructure IAM & Security
-When configuring the pipeline infrastructure, two core identities are used:
-
-**1. The Operator (Your Local ADC)**
-When executing setup scripts from your laptop via `gcloud auth application-default login`, you must have:
-- **BigQuery Data Editor** (`roles/bigquery.dataEditor`)
-- **Discovery Engine Viewer/Editor** (`roles/discoveryengine.viewer`)
-- **Logs Configuration Writer / Viewer** (`roles/logging.configWriter`, `roles/logging.viewer`)
-- **Project IAM Admin** (`roles/resourcemanager.projectIamAdmin`) required only for `setup_sink.sh`.
+Required Roles:
+- **Discovery Engine Viewer/Editor** (`roles/discoveryengine.viewer`) - To read agent metadata and trigger metrics export.
+- **Logs Configuration Writer** (`roles/logging.configWriter`) - To create the log sink.
+- **Service Usage Admin** (`roles/serviceusage.serviceUsageAdmin`) - To enable the BigQuery API if not already enabled.
+- **BigQuery Data Owner** (`roles/bigquery.dataOwner`) - To create the dataset/tables and populate them.
+- **BigQuery Job User** (`roles/bigquery.jobUser`) - To run load jobs to push data to BigQuery.
+- **Project IAM Admin** (`roles/resourcemanager.projectIamAdmin`) - Needed specifically to grant the auto-generated service account access to the BigQuery dataset (required only for `infra_setup/setup_sink.sh`).
 
 **2. The Log Sink Service Account**
-Running `./setup_sink.sh` provisions a unique Writer Identity for the sink, automatically granting it **BigQuery Data Editor** to stream agent creations.
+Running `infra_setup/setup_sink.sh` provisions a unique Writer Identity for the sink. You must ensure it has **BigQuery Data Editor** access to the dataset in the Analytics project.
+- The script attempts to grant this automatically if you have Project IAM Admin on the Analytics project.
+- If it fails (e.g., due to lack of permissions), it will print the exact `gcloud` command for an administrator to run manually.
 
 ### Pipeline Setup & Installation (One-Time)
 
-Navigate to the `analytics_pipeline` directory:
-```bash
-cd analytics_pipeline
-```
+1. **Clone the Repository:**
+   ```bash
+   git clone <repository-url>
+   cd business_value_agent
+   ```
 
-1. **Configure the Environment:**
+2. **Navigate to the `analytics_pipeline` directory:**
+   ```bash
+   cd analytics_pipeline
+   ```
+
+3. **Configure the Environment:**
    ```bash
    cp .env_template .env
    ```
    Define your active `PROJECT_ID`, engine info, and dataset specifications inside `.env`.
 
-2. **Install Python Dependencies (using `uv`):**
+   **Enable BigQuery API in Analytics Project:**
+   ```bash
+   gcloud services enable bigquery.googleapis.com --project=PROJECT_ID
+   ```
+
+4. **Install Python Dependencies (using `uv`):**
    ```bash
    uv venv
    uv pip install -r data_pipelines/requirements.txt
    ```
 
-3. **Run Master Setup Script (Infra + Tables + View):**
-   Run the single setup script to provision the dataset, tables, live logging sink, and the unified metrics view in the correct order:
+### Infrastructure Setup
+
+Run these steps to provision the required cloud infrastructure:
+
+1. **Provision BigQuery Dataset and Metrics Table:**
+   Initializes the BigQuery dataset and creates the metrics table (`monthly_leaderboard`).
    ```bash
-   chmod +x infra_setup/setup.sh
-   ./infra_setup/setup.sh
+   chmod +x infra_setup/setup_bq.sh
+   ./infra_setup/setup_bq.sh
    ```
-   *Note: This script internally calls `infra_setup/create_unified_view.sh` to create the BigQuery view. You can also run `infra_setup/create_unified_view.sh` independently to recreate the view if needed.*
 
+2. **Provision Cloud Logging Sink:**
+   Creates the Cloud Logging sink to capture agent creation events and grants necessary permissions. *Note: Cloud Logging uses an auto-generated Google-managed service account like `service-[PROJECT_NUMBER]@gcp-sa-logging.iam.gserviceaccount.com` (Writer Identity) to deliver logs.*
+   ```bash
+   chmod +x infra_setup/setup_sink.sh
+   ./infra_setup/setup_sink.sh
+   ```
 
-### Data Ingestion & Sync
+### Initial Data Ingestion & View Creation
 
-Assume you are in the `analytics_pipeline` directory:
+Once the infrastructure is ready, run these steps to populate the dataset and create the unified view:
 
-1. **One-Time Backfill of Historical Creators:**
-   Scans past 365 days of Audit Logs to backfill `historical_creators`.
+1. **First-time Data Sync:**
+   Queries the Discovery Engine API to fetch metadata for all agents and triggers the first metrics export.
+   ```bash
+   .venv/bin/python data_pipelines/fetch_agent_names.py
+   .venv/bin/python data_pipelines/metrics_to_bq.py
+   ```
+
+2. **One-Time Backfill of Historical Creators:**
+   Scans past 365 days of Audit Logs to backfill `historical_creators` table.
    ```bash
    chmod +x data_pipelines/export_historical_creators.sh
    ./data_pipelines/export_historical_creators.sh
    ```
-   **NOTE:** This task will take serveral minutes to complete.
+   *Note: This task may take several minutes to complete.*
 
-2. **Periodic Data Ingestion (Sync) - Unified Script:**
-   Run the unified sync script to pull the latest display names and usage metrics from Vertex API and push them to BigQuery:
+3. **Create Unified Metrics View:**
+   Creates a BigQuery view that joins the leaderboard data from logs with the agent names for full visibility.
+   ```bash
+   chmod +x infra_setup/create_unified_view.sh
+   ./infra_setup/create_unified_view.sh
+   ```
+
+### Future Data Synchronization
+
+To keep your analytics fresh, you should schedule the unified sync script to run periodically (e.g., nightly).
+
+The `data_pipelines/sync_data.sh` script runs both `fetch_agent_names.py` and `metrics_to_bq.py` (same as Step 1 under Initial Data Ingestion & View Creation above).
+
+1. **Run the Unified Sync Script:**
    ```bash
    chmod +x data_pipelines/sync_data.sh
    ./data_pipelines/sync_data.sh
    ```
 
-**Operational Cadence (Scheduling):**
-Recommendation: Run `./data_pipelines/sync_data.sh` nightly using your local scheduler or deploy it as a **Google Cloud Run Job** triggered by **Google Cloud Scheduler**.*
+#### How to Schedule It:
+
+Here are a few common mechanisms to set this up:
+
+**Option 1: Linux Cron (Simple, for local or VM execution)**
+Add a cron job to run the script every night at midnight:
+```bash
+0 0 * * * cd /path/to/business_value_agent/analytics_pipeline && ./data_pipelines/sync_data.sh >> sync.log 2>&1
+```
+
+**Option 2: Cloud Run Jobs + Cloud Scheduler (Serverless, Recommended for Production)**
+1.  Containerize the script (create a Dockerfile that installs dependencies and runs `sync_data.sh`).
+2.  Deploy it as a **Cloud Run Job**.
+3.  Use **Cloud Scheduler** to trigger the job nightly via an HTTP or workflow trigger.
+
+**Option 3: Cloud Composer (Apache Airflow)**
+If you are already using Airflow, you can create a simple DAG with a `BashOperator` to run this script on a schedule.
 
 ---
 

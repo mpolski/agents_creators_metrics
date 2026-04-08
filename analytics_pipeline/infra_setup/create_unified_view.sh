@@ -3,7 +3,21 @@
 
 set -e
 
-PROJECT_ID=$(gcloud config get-value project)
+# Load environment variables from .env file if it exists
+if [ -f .env ]; then
+  echo "🔍 Loading environment variables from .env"
+  set -a
+  source .env
+  set +a
+else
+  echo "⚠️ .env file not found."
+fi
+
+if [ -z "$BQ_DATASET_PROJECT_ID" ]; then
+  BQ_DATASET_PROJECT_ID=$(gcloud config get-value project)
+fi
+
+PROJECT_ID=$BQ_DATASET_PROJECT_ID
 DATASET_ID="gemini_analytics"
 VIEW_ID="vw_unified_metrics"
 
