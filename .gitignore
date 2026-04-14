@@ -1,6 +1,7 @@
 .env
 adk_agent/.env
-adk_agent/__pycache__/
+__pycache__/
+*.pyc
 adk_agent/.adk/
 *.txt
 *.json

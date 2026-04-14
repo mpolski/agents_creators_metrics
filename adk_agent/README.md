@@ -26,13 +26,8 @@ If you prefer to use the **Agent Starter Pack**, follow these simplified steps t
    ```
 
 5. **Deploy**:
-   Set the required environment variables and run the deploy command:
+   Ensure your `.env` file is updated with the required settings (see step 4), then run:
    ```bash
-   export GOOGLE_CLOUD_PROJECT="your-project-id"
-   export GOOGLE_CLOUD_LOCATION="your-region" # e.g., us-central1
-   export MCP_ENDPOINT="your-mcp-endpoint"
-   export TARGET_SA_EMAIL="your-target-sa-email"
-   
    make deploy
    ```
 
