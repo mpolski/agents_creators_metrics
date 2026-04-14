@@ -2,8 +2,9 @@
 import os
 from dotenv import load_dotenv
 
-# Load environment variables
-load_dotenv()
+# Load environment variables from the same directory as this file
+dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+load_dotenv(dotenv_path=dotenv_path)
 import google.auth
 import google.auth.transport.requests
 from google.auth import impersonated_credentials  # <--- NEW MODULE
@@ -93,3 +94,7 @@ root_agent = LlmAgent(
     description="An agent that queries Gemini Analytics metrics using a BigQuery MCP server.",
     tools=[database_tools]
 )
+
+from google.adk.apps import App
+
+app = App(root_agent=root_agent, name="adk_agent")
