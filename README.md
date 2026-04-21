@@ -75,9 +75,11 @@ Running `infra_setup/setup_sink.sh` provisions a unique Writer Identity for the 
    ```
 
 4. **Install Python Dependencies (using `uv`):**
+   Run `uv sync` from the project root directory to install dependencies from `pyproject.toml`:
    ```bash
-   uv venv
-   uv pip install -r data_pipelines/requirements.txt
+   cd ..
+   uv sync --no-dev
+   cd analytics_pipeline
    ```
 
 5. **Authenticate with Google Cloud:**
@@ -111,8 +113,8 @@ Once the infrastructure is ready, run these steps to populate the dataset and cr
 1. **First-time Data Sync:**
    Queries the Discovery Engine API to fetch metadata for all agents and triggers the first metrics export.
    ```bash
-   .venv/bin/python data_pipelines/fetch_agent_names.py
-   .venv/bin/python data_pipelines/metrics_to_bq.py
+   ../.venv/bin/python data_pipelines/fetch_agent_names.py
+   ../.venv/bin/python data_pipelines/metrics_to_bq.py
    ```
 
 2. **One-Time Backfill of Historical Creators:**
@@ -175,8 +177,8 @@ To run the agent locally and chat with your BigQuery data, follow these steps:
 1. **Install the Agent Development Kit (ADK) and dependencies:**
    Follow the official instructions to install the ADK CLI: [ADK Get Started](https://adk.dev/get-started/python).
    ```bash
-   pip install google-adk
-   pip install -r adk_agent/requirements.txt
+   uv pip install google-adk
+   uv pip install -r adk_agent/requirements.txt
    ```
 
 2. **Enable BigQuery MCP Native Service:**
