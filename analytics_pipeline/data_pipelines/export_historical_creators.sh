@@ -30,7 +30,7 @@ echo "✅ Raw logs downloaded! Now parsing with jq..."
 #    (Updated with safe fallbacks before splitting to prevent null string errors)
 cat "${RAW_FILE}" | jq -c '.[]? | {
   timestamp: .timestamp,
-  creator_email: (.protoPayload.authenticationInfo.principalEmail // "unknown_email"),
+  creator_email: (.protoPayload.authenticationInfo.principalEmail // (.protoPayload.authenticationInfo.principalSubject | sub("^user:"; "") | split("/") | last) // "unknown_email"),
   agent_id: ((.protoPayload.request.agent.name // .protoPayload.response.name // .protoPayload.resourceName // "unknown/unknown_id") | split("/") | last),
   display_name: (.protoPayload.request.agent.displayName // .protoPayload.response.displayName // "Unknown Name")
 }' > "${OUTPUT_FILE}"
@@ -44,6 +44,7 @@ if [ -s "${OUTPUT_FILE}" ]; then
     
     # 6. Load into BigQuery (using --replace so you can run this safely)
     bq load \
+      --project_id="${PROJECT_ID}" \
       --source_format=NEWLINE_DELIMITED_JSON \
       --autodetect \
       --replace \
